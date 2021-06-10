@@ -1,0 +1,27 @@
+.additional-info {
+  margin-left: 20px;
+  position: sticky;
+  top: 0;
+}
+
+.additional-info .additional-info__block {
+  padding: 20px 0;
+  border-bottom: 1px solid #d8dfe5;
+}
+
+.additional-info .block__description {
+  margin-bottom: 4px;
+  font-size: 0.7em;
+}
+
+.additional-info .block__text,
+.additional-info .block__text--small {
+  color: #053249;
+  font-weight: 500;
+  font-size: 1.1em;
+  margin-bottom: 14px;
+}
+
+.additional-info .block__text--small {
+  font-size: 0.9em;
+}

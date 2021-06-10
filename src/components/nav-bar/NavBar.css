@@ -1,0 +1,113 @@
+.header-wrapper {
+  display: flex;
+  justify-content: center;
+  background: #053249;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  width: 1280px;
+}
+
+.header .section {
+  display: flex;
+  align-items: center;
+}
+
+.header .section__logo--left {
+  padding-right: 40px;
+}
+
+.header .section__logo--left .section--logo {
+  width: 100px;
+  height: auto;
+}
+
+.header .menu {
+  text-decoration: none;
+  list-style-type: none;
+  color: white;
+}
+
+.header .section__menu {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.header .menu__item {
+  position: relative;
+  margin: 0 20px;
+}
+
+.header .menu__item .menu__item--hover,
+.header .header__section--right .section__profile {
+  color: white;
+  text-decoration: none;
+}
+
+.header .menu__item .menu__item--hover:after {
+  display: block;
+  content: '';
+  background-color: #0088ff;
+  margin-top: 28px;
+  height: 3px;
+  width: 0%;
+  left: 50%;
+  position: absolute;
+  -webkit-transition: width 0.3s ease-in-out;
+  -moz--transition: width 0.3s ease-in-out;
+  transition: width 0.3s ease-in-out;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+.header .menu__item .menu__item--hover:hover:after,
+.header .menu__item .menu__item--hover:focus:after {
+  width: 100%;
+}
+
+.header .header__section--right .section__button,
+.survey .button__back,
+.survey .button__next {
+  margin: 0 10px;
+  padding: 10px;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  outline: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.header .header__section--right .section__button--gray {
+  background: #1f4461;
+}
+
+.header .header__section--right .section__button--blue,
+.survey .button__next {
+  background: #0088ff;
+}
+
+.header .header__section--right .section__button--gray:hover {
+  background: hsl(206deg 52% 25% / 80%);
+}
+
+.header .header__section--right .section__button--blue:hover,
+.survey .button__next:hover {
+  background: hsl(208deg 100% 50% / 80%);
+}
+
+.header .header__section--right .section__profile {
+  min-height: 20px;
+  min-width: 20px;
+  padding: 10px;
+  margin-left: 20px;
+  border-radius: 100px;
+  background: #0088ff;
+}

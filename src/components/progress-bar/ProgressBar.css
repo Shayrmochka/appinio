@@ -1,0 +1,104 @@
+* {
+  box-sizing: border-box;
+}
+
+.progress-bar {
+  padding-bottom: 10px;
+  list-style-type: none;
+  font-family: arial;
+  font-size: 12px;
+  clear: both;
+  line-height: 1em;
+  margin: 0 -1px;
+  text-align: center;
+}
+
+.progress-bar .progress-bar__step {
+  float: left;
+  /* padding: 22px 30px 22px 40px; */
+  padding: 12px 30px 12px 40px;
+  display: flex;
+  background: #d8dfe5;
+  color: #899ca9;
+  font-weight: 600;
+  position: relative;
+  border-top: 1px solid #d8dfe5;
+  border-bottom: 1px solid #d8dfe5;
+  border-radius: 0 8px 8px 0;
+  width: 24.5%;
+  margin: 0 1px;
+  box-shadow: -6px 11px 4px -5px rgb(0 0 0 / 7%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.progress-bar .progress-bar__step:before {
+  content: '';
+  border-left: 24px solid #eaeff3;
+  border-top: 28px solid transparent;
+  border-bottom: 28px solid transparent;
+  position: absolute;
+  top: 0;
+  left: -2px;
+}
+.progress-bar .progress-bar__step:after {
+  content: '';
+  border-left: 24px solid #d8dfe5;
+  border-top: 28px solid transparent;
+  border-bottom: 28px solid transparent;
+  position: absolute;
+  top: 0;
+  left: 99%;
+  z-index: 20;
+}
+
+.progress-bar .progress-bar__step.complete {
+  color: #22d071;
+  background: #ffffff;
+  border-top: 1px solid #ffffff;
+  border-bottom: 1px solid #ffffff;
+}
+
+.progress-bar .progress-bar__step.active {
+  color: #0088ff;
+  background: #ffffff;
+  border-top: 1px solid #ffffff;
+  border-bottom: 1px solid #ffffff;
+}
+
+.progress-bar .progress-bar__step.complete:after {
+  border-left-color: #ffffff;
+}
+
+.progress-bar .progress-bar__step.active:after {
+  border-left-color: #ffffff;
+}
+
+.progress-bar .progress-bar__step:first-child:before {
+  border: none;
+}
+
+.progress-bar__step-number {
+  position: relative;
+  display: block;
+  background: transparent;
+  border: 1px solid #899ca9;
+  border-radius: 50px;
+  padding: 10px;
+  width: 34px;
+  margin-right: 10px;
+  color: #899ca9;
+}
+
+.progress-bar__step-number.complete {
+  color: white;
+  background: #22d071;
+  border: 1px solid #22d071;
+}
+
+.progress-bar__step-number.active {
+  color: white;
+  background: #0088ff;
+  border: 1px solid #0088ff;
+}

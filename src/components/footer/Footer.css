@@ -1,0 +1,27 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  margin: 40px 0;
+  padding: 16px 0;
+  border-top: 1px solid #d8dfe5;
+}
+
+.footer .footer__language {
+  display: flex;
+}
+
+.footer .footer__language p {
+  margin-right: 12px;
+}
+
+.footer .language__border {
+  margin-right: 9px;
+  border-right: 1px solid #d8dfe5;
+}
+
+.footer .language__select {
+  color: #7d92a1;
+  outline: none;
+  border: none;
+  background: transparent;
+}
