@@ -24,11 +24,15 @@
 }
 
 .step-wrapper .group__title,
-.step-wrapper .group-block__title {
+.step-wrapper .group-block__title,
+.step-wrapper .group__title--compact {
   padding: 20px 0;
   font-size: 1em;
   font-weight: 400;
   color: #053249;
+}
+.step-wrapper .group__title--compact {
+  padding: 10px 0 0 0;
 }
 
 .step-wrapper .group-block__title {
@@ -175,4 +179,17 @@
 .step-wrapper .group__inputs--full > * {
   flex: 0 0 100%;
   margin: 10px 0;
+}
+
+.form__group--padding {
+  padding: 10px;
+}
+
+.form ul {
+  margin: 20px 0 0 0;
+}
+
+.form ul li {
+  margin-left: 20px;
+  padding: 4px 0;
 }

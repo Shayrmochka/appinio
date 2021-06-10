@@ -82,10 +82,15 @@ export const dataFirst = [
           },
         ],
       },
-
+    ],
+  },
+  {
+    id: '2000',
+    groupTitle: 'How many people are included in this application?',
+    groupInfo: [
       {
-        id: '2000',
-        blockTitle: '2. How many people are included in this application?',
+        id: '2001',
+        blockTitle: '2.  Write the number of people in this application',
         elementsType: 'input',
         elements: [
           {
@@ -96,9 +101,6 @@ export const dataFirst = [
       },
     ],
   },
-];
-
-export const dataSecond = [
   {
     id: '3000',
     groupTitle: 'Details of person(s) included in this application',
@@ -591,6 +593,8 @@ export const dataSecond = [
   },
 ];
 
+export const dataSecond = [];
+
 export const dataThird = [
   {
     id: '5000',
@@ -599,7 +603,7 @@ export const dataThird = [
       {
         id: '5001',
         blockTitle:
-          '5. In the last 5 years, has any person included in this application, visited, or lived, outside their country of passport for more than 3 consecutive months?',
+          'In the last 5 years, has any person included in this application, visited, or lived, outside their country of passport for more than 3 consecutive months?',
         elementsType: 'checkbox',
         elements: [
           {
@@ -689,7 +693,7 @@ export const dataThird = [
       {
         id: '6001',
         blockTitle:
-          '6. Does any person included in this application, intend to enter a hospital or a health care facility (including nursing homes) while in Australia?',
+          'Does any person included in this application, intend to enter a hospital or a health care facility (including nursing homes) while in Australia?',
         elementsType: 'checkbox',
         elements: [
           {
@@ -721,7 +725,7 @@ export const dataThird = [
       {
         id: '7001',
         blockTitle:
-          '7. Does any person included in this application, intend to work as, or study to be, a doctor, dentist, nurse or paramedic during your stay in Australia?',
+          'Does any person included in this application, intend to work as, or study to be, a doctor, dentist, nurse or paramedic during your stay in Australia?',
         elementsType: 'checkbox',
         elements: [
           {
@@ -753,7 +757,7 @@ export const dataThird = [
       {
         id: '8001',
         blockTitle:
-          '8. Does any person included in this application, intend to work, or be a trainee, at a child care centre (including preschools and creches) while in Australia?',
+          'Does any person included in this application, intend to work, or be a trainee, at a child care centre (including preschools and creches) while in Australia?',
         elementsType: 'checkbox',
         elements: [
           {
@@ -785,7 +789,7 @@ export const dataThird = [
       {
         id: '9001',
         blockTitle:
-          '9. Has any person included in this application ever had, or currently have, tuberculosis or been in close contact with a family member that has active tuberculosis or ever had a chest x-ray which showed an abnormality?',
+          'Has any person included in this application ever had, or currently have, tuberculosis or been in close contact with a family member that has active tuberculosis or ever had a chest x-ray which showed an abnormality?',
         elementsType: 'checkbox',
         elements: [
           {
@@ -817,7 +821,7 @@ export const dataThird = [
       {
         id: '10001',
         blockTitle:
-          '10. During the proposed stay in Australia, does any person included in this application, expect to incur medical costs, or require treatment or medical follow up for: blood disorder; cancer; heart disease; hepatitis B or C and/or liver disease; HIV infection, including AIDS; kidney disease, including dialysis; mental illness; pregnancy; respiratory disease that has required hospital admission or oxygen therapy; other?',
+          'During the proposed stay in Australia, does any person included in this application, expect to incur medical costs, or require treatment or medical follow up for: blood disorder; cancer; heart disease; hepatitis B or C and/or liver disease; HIV infection, including AIDS; kidney disease, including dialysis; mental illness; pregnancy; respiratory disease that has required hospital admission or oxygen therapy; other?',
         elementsType: 'checkbox',
         elements: [
           {
@@ -849,7 +853,7 @@ export const dataThird = [
       {
         id: '11001',
         blockTitle:
-          '11. Does any person included in this application, require assistance with mobility or care due to a medical condition?',
+          'Does any person included in this application, require assistance with mobility or care due to a medical condition?',
         elementsType: 'checkbox',
         elements: [
           {
@@ -881,7 +885,7 @@ export const dataThird = [
       {
         id: '12001',
         blockTitle:
-          '12. Has any person included in this application, undertaken a health examination for an Australian visa in the last 12 months?',
+          'Has any person included in this application, undertaken a health examination for an Australian visa in the last 12 months?',
         elementsType: 'checkbox',
         elements: [
           {
@@ -916,7 +920,7 @@ export const dataThird = [
 export const dataFourth = [
   {
     id: '15000',
-    groupTitle: '15. Has any person included in this application, ever:',
+    groupTitle: 'Has any person included in this application, ever:',
     groupInfo: [
       {
         id: '15001',

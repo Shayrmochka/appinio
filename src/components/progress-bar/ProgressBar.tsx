@@ -25,7 +25,7 @@ const StepBar: React.FC<ProgressBarProps> = ({ steps, activeStep }) => {
             >
               {i + 1}
             </p>
-            {e}
+            {/* {e} */}
           </li>
         ))}
       </ul>

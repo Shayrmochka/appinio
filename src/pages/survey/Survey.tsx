@@ -4,15 +4,21 @@ import FirstStep from '../../components/main-forms/FirstStep';
 import SecondStep from '../../components/main-forms/SecondStep';
 import ThirdStep from '../../components/main-forms/ThirdStep';
 import FourthStep from '../../components/main-forms/FourthStep';
+import FifthStep from '../../components/main-forms/FifthStep';
+import SixthStep from '../../components/main-forms/SixthStep';
 import AdditionalInfo from '../../components/additional-forms/AdditionalInfo';
 import './Survey.css';
 
-const steps = [
-  'Details of the primary visa holder',
-  'Details of other person(s)',
-  'Health',
-  'Character',
-];
+// const steps = [
+//   'Details of the primary visa holder',
+//   'Details of other person(s)',
+//   'Health',
+//   'Character',
+//   '5',
+//   '6',
+// ];
+
+const steps = ['1', '2', '3', '4', '5', '6'];
 
 const Survey = () => {
   const [activeStep, setActiveStep] = useState(0);
@@ -43,6 +49,10 @@ const Survey = () => {
         return <ThirdStep />;
       case 3:
         return <FourthStep />;
+      case 4:
+        return <FifthStep />;
+      case 5:
+        return <SixthStep />;
       default:
         return <FirstStep />;
     }
