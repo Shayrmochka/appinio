@@ -31,6 +31,7 @@ const GroupBlock: React.FC<GroupBlockProps> = ({
             key={e.id}
             blockTitle={e.blockTitle}
             elements={e.elements}
+            style={e.style}
             handleCheckBox={handleCheckBox}
           />
         )

@@ -123,6 +123,7 @@ export const dataSecond = [
         id: '3002',
         blockTitle:
           'Have they been known by any other names? (including name at birth, previous married names, aliases)',
+        style: 'form__group--without-border',
         elementsType: 'checkbox',
         elements: [
           {
@@ -293,13 +294,6 @@ export const dataSecond = [
             name: '3-countryOfPassport',
             placeholder: 'Country of passport',
           },
-        ],
-      },
-      {
-        id: '3011',
-        blockTitle: '',
-        elementsType: 'input',
-        elements: [
           {
             name: '3-issue',
             placeholder: 'Date of issue',
@@ -315,11 +309,20 @@ export const dataSecond = [
           },
         ],
       },
+      // {
+      //   id: '3011',
+      //   blockTitle: '',
+      //   elementsType: 'input',
+      //   elements: [
+
+      //   ],
+      // },
       {
         id: '3012',
         blockTitle:
           'Does this person hold an identity card or identity number issued by their government eg. National identity card?',
         elementsType: 'checkbox',
+        style: 'form__group--without-border',
         elements: [
           {
             id: '3-card-no',
@@ -448,6 +451,7 @@ export const dataSecond = [
         blockTitle:
           'Before this application, has this person ever applied for an Australian visa?',
         elementsType: 'checkbox',
+        style: 'form__group--without-border',
         elements: [
           {
             id: '3-applied-visa-no',
@@ -517,6 +521,7 @@ export const dataSecond = [
         id: '3021',
         blockTitle: 'Has this person ever held a Bridging visa E?',
         elementsType: 'checkbox',
+        style: 'form__group--without-border',
         elements: [
           {
             id: '3-bridging-visa-e-no',
@@ -561,6 +566,7 @@ export const dataSecond = [
         blockTitle:
           'Has this person ever had an Australian visa refused or cancelled?',
         elementsType: 'checkbox',
+        style: 'form__group--without-border',
         elements: [
           {
             id: '3-australian-visa-refused-no',
@@ -601,6 +607,7 @@ export const dataThird = [
         blockTitle:
           '5. In the last 5 years, has any person included in this application, visited, or lived, outside their country of passport for more than 3 consecutive months?',
         elementsType: 'checkbox',
+        style: 'form__group--without-border',
         elements: [
           {
             id: '5-visited-no',
@@ -691,6 +698,7 @@ export const dataThird = [
         blockTitle:
           '6. Does any person included in this application, intend to enter a hospital or a health care facility (including nursing homes) while in Australia?',
         elementsType: 'checkbox',
+        style: 'form__group--without-border',
         elements: [
           {
             id: '6-hospital-no',
@@ -723,6 +731,7 @@ export const dataThird = [
         blockTitle:
           '7. Does any person included in this application, intend to work as, or study to be, a doctor, dentist, nurse or paramedic during your stay in Australia?',
         elementsType: 'checkbox',
+        style: 'form__group--without-border',
         elements: [
           {
             id: '7-work-no',
@@ -755,6 +764,7 @@ export const dataThird = [
         blockTitle:
           '8. Does any person included in this application, intend to work, or be a trainee, at a child care centre (including preschools and creches) while in Australia?',
         elementsType: 'checkbox',
+        style: 'form__group--without-border',
         elements: [
           {
             id: '8-work-no',
@@ -787,6 +797,7 @@ export const dataThird = [
         blockTitle:
           '9. Has any person included in this application ever had, or currently have, tuberculosis or been in close contact with a family member that has active tuberculosis or ever had a chest x-ray which showed an abnormality?',
         elementsType: 'checkbox',
+        style: 'form__group--without-border',
         elements: [
           {
             id: '9-tuberculosis-no',
@@ -819,6 +830,7 @@ export const dataThird = [
         blockTitle:
           '10. During the proposed stay in Australia, does any person included in this application, expect to incur medical costs, or require treatment or medical follow up for: blood disorder; cancer; heart disease; hepatitis B or C and/or liver disease; HIV infection, including AIDS; kidney disease, including dialysis; mental illness; pregnancy; respiratory disease that has required hospital admission or oxygen therapy; other?',
         elementsType: 'checkbox',
+        style: 'form__group--without-border',
         elements: [
           {
             id: '10-for-no',
@@ -851,6 +863,7 @@ export const dataThird = [
         blockTitle:
           '11. Does any person included in this application, require assistance with mobility or care due to a medical condition?',
         elementsType: 'checkbox',
+        style: 'form__group--without-border',
         elements: [
           {
             id: '11-assistance-no',
@@ -883,6 +896,7 @@ export const dataThird = [
         blockTitle:
           '12. Has any person included in this application, undertaken a health examination for an Australian visa in the last 12 months?',
         elementsType: 'checkbox',
+        style: 'form__group--without-border',
         elements: [
           {
             id: '12-undertaken-no',
@@ -1375,6 +1389,7 @@ export const dataFifth = [
         id: '16002',
         blockTitle: 'Please give details of the person who assisted you',
         elementsType: 'checkbox',
+        style: 'form__group--without-border',
         elements: [
           {
             id: '16-mr',

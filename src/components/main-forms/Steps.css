@@ -101,6 +101,11 @@
   flex-wrap: wrap;
 }
 
+.step-wrapper .form__group--without-border {
+  border: none;
+  padding-bottom: 0;
+}
+
 .step-wrapper .checkboxes__title {
   margin-bottom: 10px;
 }
