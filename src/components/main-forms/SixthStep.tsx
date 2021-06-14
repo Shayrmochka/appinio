@@ -1,11 +1,17 @@
 import React from 'react';
+import ScrollToTopOnMount from '../../utilites/ScrollToTopOnMount';
 import './Steps.css';
 
 const SixthStep = () => {
   return (
     <div className="step-wrapper">
+      <ScrollToTopOnMount />
       <form className="form ">
         <div className="form__group--padding group">
+          <p className="group-block__title">
+            {' '}
+            Part E – Declaration and consent
+          </p>
           <p className="group__title--compact">
             <strong>Note</strong>: This declaration and consent must be read and
             signed by the primary person and any secondary persons included in

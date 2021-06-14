@@ -4,31 +4,22 @@ import Select from 'react-select';
 import { DatePicker, DatePickerInput } from 'rc-datepicker';
 import 'moment/locale/it.js';
 
-interface InputProps {
+interface InputDateProps {
   element: any;
   status: any;
 }
 
-const Input: React.FC<InputProps> = ({ element, status }) => {
+const InputDate: React.FC<InputDateProps> = ({ element, status }) => {
   const { userData, handleChange } = useContext(UserDataContext);
-  const options = [
-    {
-      value: {
-        id: 'test',
-        text: 'text',
-      },
-      label: 'Chocolate',
-    },
-    { value: 'strawberry', label: 'Strawberry' },
-    { value: 'vanilla', label: 'Vanilla' },
-  ];
-  const date = '2015-06-26';
+
   return (
     <div className="inputs__wrapper">
       <input
         key={element.name}
         className="inputs__item"
         name={element.name}
+        min="1900-01-01"
+        max="2021-01-01"
         disabled={!status}
         value={userData[element.name]}
         id={element.name}
@@ -36,9 +27,8 @@ const Input: React.FC<InputProps> = ({ element, status }) => {
         required
         onChange={handleChange}
       />
-      <label className="inputs__label">{element.placeholder}</label>
     </div>
   );
 };
 
-export default Input;
+export default InputDate;

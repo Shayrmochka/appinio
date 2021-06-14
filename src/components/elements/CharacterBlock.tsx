@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
 import Table from '../table/Table';
 import GroupWrapper from './GroupWrapper';
 
 function CharacterBlock() {
-  const [data, setData] = useState([
+  const data = [
     {
       id: '14000',
       groupTitle: '',
@@ -30,12 +29,7 @@ function CharacterBlock() {
         },
       ],
     },
-  ]);
-
-  const handleCheckBox = (event: any) => {
-    const { id, checked } = event.target;
-    // console.log(id, checked);
-  };
+  ];
 
   return (
     <div>
@@ -61,7 +55,7 @@ function CharacterBlock() {
         information to the Department.
       </p>
 
-      <GroupWrapper data={data} handleCheckBox={handleCheckBox} />
+      <GroupWrapper data={data} />
       <Table />
     </div>
   );

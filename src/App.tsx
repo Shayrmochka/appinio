@@ -1,5 +1,3 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import './normalize.css';
 import NavBar from './components/nav-bar/NavBar';

@@ -8,6 +8,7 @@ export const dataFirst = [
         id: '1001',
         blockTitle: '1. What are the primary person’s details?',
         elementsType: 'input',
+        style: 'form__group--without-border',
         elements: [
           {
             name: '1-family-name',
@@ -34,21 +35,21 @@ export const dataFirst = [
         elements: [
           {
             id: '1-male',
-            name: '1-male',
-            value: 'yes',
+            name: '1-gender',
+            value: '1-male',
             label: 'Male',
           },
           {
             id: '1-female',
-            name: '1-female',
-            value: 'yes',
+            name: '1-gender',
+            value: '1-female',
             label: 'Female',
           },
           {
             id: '1-unspecified',
-            name: '1-unspecified',
+            name: '1-gender',
+            value: '1-unspecified',
             label: 'Indeterminate / Intersex / Unspecified',
-            value: 'yes',
           },
         ],
       },
@@ -108,6 +109,7 @@ export const dataSecond = [
         blockTitle:
           '3. Give details of all secondary persons to be included as applicants for a subclass 491 visa in this application form.',
         elementsType: 'input',
+        style: 'form__group--without-border',
         elements: [
           {
             name: '3-family-name',
@@ -123,19 +125,18 @@ export const dataSecond = [
         id: '3002',
         blockTitle:
           'Have they been known by any other names? (including name at birth, previous married names, aliases)',
-        style: 'form__group--without-border',
         elementsType: 'checkbox',
         elements: [
           {
             id: '3-no',
-            name: '3-no',
+            name: '3-other-names',
             value: false,
             label: 'No',
             checked: false,
           },
           {
             id: '3-yes',
-            name: '3-yes',
+            name: '3-other-names',
             value: true,
             label: 'Yes',
             checked: false,
@@ -144,8 +145,11 @@ export const dataSecond = [
       },
       {
         id: '3003',
+        renderFor: '3-other-names',
         blockTitle: 'Give details',
         elementsType: 'input',
+        // style: 'form__group--hidden form__group--without-border',
+        style: 'form__group--without-border',
         elements: [
           {
             name: '3-other-family-name',
@@ -166,21 +170,21 @@ export const dataSecond = [
         elements: [
           {
             id: '3-male',
-            name: '3-male',
-            value: true,
+            name: '3-gender',
+            value: '3-male',
             label: 'Male',
           },
           {
             id: '3-female',
-            name: '3-female',
-            value: true,
+            name: '3-gender',
+            value: '3-female',
             label: 'Female',
           },
           {
             id: '3-unspecified',
-            name: '3-unspecified',
+            name: '3-gender',
+            value: '3-unspecified',
             label: 'Indeterminate / Intersex / Unspecified',
-            value: true,
           },
         ],
       },
@@ -191,6 +195,7 @@ export const dataSecond = [
         elements: [
           {
             name: '3-dateOfBirth',
+            type: 'date',
             placeholder: 'Date of birth',
           },
         ],
@@ -202,10 +207,12 @@ export const dataSecond = [
         elements: [
           {
             name: '3-city',
+            type: 'select',
             placeholder: 'Town/city',
           },
           {
             name: '3-country',
+            type: 'select',
             placeholder: 'Country',
           },
         ],
@@ -228,45 +235,45 @@ export const dataSecond = [
         elements: [
           {
             id: '3-married',
-            name: '3-married',
+            name: '3-relationship-status',
             value: true,
             label: 'Married',
           },
           {
             id: '3-engaged',
-            name: '3-engaged',
-            value: true,
+            name: '3-relationship-status',
+            value: '3-engaged',
             label: 'Engaged',
           },
           {
             id: '3-deFacto',
-            name: '3-deFacto',
+            name: '3-relationship-status',
             label: 'De facto',
-            value: true,
+            value: '3-deFacto',
           },
           {
             id: '3-separated',
-            name: '3-separated',
-            value: true,
+            name: '3-relationship-status',
+            value: '3-separated',
             label: 'Separated',
           },
           {
             id: '3-divorced',
-            name: '3-divorced',
-            value: true,
+            name: '3-relationship-status',
+            value: '3-divorced',
             label: 'Divorced',
           },
           {
             id: '3-widowed',
-            name: '3-widowed',
+            name: '3-relationship-status',
             label: 'Widowed',
-            value: true,
+            value: '3-widowed',
           },
           {
             id: '3-never',
-            name: '3-never',
+            name: '3-relationship-status',
             label: 'Never married or been in a de facto relationship',
-            value: true,
+            value: '3-never',
           },
         ],
       },
@@ -342,6 +349,7 @@ export const dataSecond = [
         id: '3013',
         blockTitle: 'Give details',
         elementsType: 'input',
+        style: 'form__group--hidden form__group--without-border',
         elements: [
           {
             name: '3-card-identify-number',
@@ -471,6 +479,7 @@ export const dataSecond = [
         id: '3019',
         blockTitle: 'Give details',
         elementsType: 'input',
+        style: 'form__group--hidden form__group--without-border',
         elements: [
           {
             name: '3-date-of-application',
@@ -541,6 +550,7 @@ export const dataSecond = [
         id: '3022',
         blockTitle: 'Give details',
         elementsType: 'input',
+        style: 'form__group--hidden form__group--without-border',
         elements: [
           {
             name: '3-bridging-visa-place',
@@ -553,11 +563,6 @@ export const dataSecond = [
           {
             name: '3-bridging-visa-expiry',
             placeholder: 'Date of expiry',
-          },
-          {
-            name: '3-authority',
-            placeholder:
-              'Issuing authority/place of issue as shown in your passport',
           },
         ],
       },
@@ -586,6 +591,7 @@ export const dataSecond = [
         id: '3024',
         blockTitle: 'Give details',
         elementsType: 'input',
+        style: 'form__group--hidden form__group--without-border',
         elements: [
           {
             name: '3-australian-visa-refused',
@@ -937,6 +943,7 @@ export const dataFourth = [
         blockTitle:
           'been charged with any offence that is currently awaiting legal action?',
         elementsType: 'checkbox',
+        style: 'form__group--without-border',
         elements: [
           {
             id: '15-legal-no',
@@ -1303,27 +1310,6 @@ export const dataFourth = [
           },
         ],
       },
-
-      {
-        id: '150019',
-        blockTitle: 'sdfsdfsdf',
-        elementsType: 'checkbox',
-        elements: [
-          {
-            id: '15-convicted-no',
-            name: '15-convicted-no',
-            value: false,
-            label: 'No',
-          },
-          {
-            id: '15-convicted-yes',
-            name: '15-convicted-yes',
-            value: true,
-            label: 'Yes',
-          },
-        ],
-      },
-
       {
         id: '150020',
         blockTitle:
@@ -1370,6 +1356,7 @@ export const dataFifth = [
         id: '16001',
         blockTitle: '16. Did you receive assistance in completing this form?',
         elementsType: 'checkbox',
+        style: 'form__group--without-border',
         elements: [
           {
             id: '16-assistance-no',

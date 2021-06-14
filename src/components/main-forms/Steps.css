@@ -6,8 +6,7 @@
   padding: 20px;
 }
 
-.step-wrapper .form .form__title,
-.additional-info .additional-info__title {
+.step-wrapper .form .form__title {
   font-size: 1.2em;
   font-weight: 500;
   color: #053249;
@@ -19,8 +18,8 @@
 }
 
 .step-wrapper .form__group {
-  padding: 10px 0 20px 0;
-  border-bottom: 1px solid #d8dfe5;
+  margin: 10px 0 20px 0;
+  border-top: 1px solid #d8dfe5;
 }
 
 .step-wrapper .group__title,
@@ -104,6 +103,10 @@
 .step-wrapper .form__group--without-border {
   border: none;
   padding-bottom: 0;
+}
+
+.step-wrapper .form__group--hidden {
+  display: none;
 }
 
 .step-wrapper .checkboxes__title {

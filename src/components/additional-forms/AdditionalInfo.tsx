@@ -4,36 +4,43 @@ import './AdditionalInfo.css';
 interface AdditionalInfoProps {
   handleNext: () => void;
   handleBack: () => void;
+  handleSend: () => void;
+  stepTitle: string;
+  stepsNumber: number;
+  activeStep: number;
 }
 
 const AdditionalInfo: React.FC<AdditionalInfoProps> = ({
   handleNext,
   handleBack,
+  handleSend,
+  stepTitle,
+  stepsNumber,
+  activeStep,
 }) => {
   return (
     <div className="additional-info">
-      <p className="additional-info__title">Additinal info</p>
+      <p className="additional-info__title">Current Step:</p>
       <div className="additional-info__block block">
-        <p className="block__description">Preis pro Teilnehmer</p>
-        <p className="block__text">20 Credits</p>
+        <p className="block__text">{stepTitle}</p>
       </div>
-      <div className="additional-info__block block">
-        <p className="block__description">Anzahl Teilnehmer</p>
-        <p className="block__text--small">600</p>
-        <p className="block__description">Basisprels</p>
-        <p className="block__text--small">1 credit</p>
-        <p className="block__description">Zeilgruppe ausgewahit</p>
-        <p className="block__text--small">1 credit</p>
-      </div>
-      <div className="additional-info__block block">
-        <div className="container__buttons buttons">
+
+      <div className="container__buttons buttons">
+        {activeStep !== 0 && (
           <button className="button__back" onClick={handleBack}>
             Back
           </button>
+        )}
+
+        {activeStep !== stepsNumber - 1 ? (
           <button className="button__next" onClick={handleNext}>
             Next
           </button>
-        </div>
+        ) : (
+          <button className="button__next" onClick={handleSend}>
+            Send
+          </button>
+        )}
       </div>
     </div>
   );

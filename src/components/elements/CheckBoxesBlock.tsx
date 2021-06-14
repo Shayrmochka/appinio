@@ -1,27 +1,27 @@
-import React from 'react';
+import React, { useCallback, useContext, useState } from 'react';
+import { isTemplateExpression } from 'typescript';
+import { UserDataContext } from '../../context/UserDataContext';
 import CheckBox from './CheckBox';
 
 interface CheckBoxesBlockProps {
   blockTitle: any;
   elements: any;
   style: any;
-  handleCheckBox: (e: any) => void;
-  onClick: (e: any) => void;
 }
 
 const CheckBoxesBlock: React.FC<CheckBoxesBlockProps> = ({
   blockTitle,
   elements,
   style,
-  handleCheckBox,
-  onClick,
 }) => {
+  const { userData } = useContext(UserDataContext);
+
   return (
-    <div className={`form__group ${style} group`} onClick={(e) => onClick(e)}>
+    <div className={`form__group ${style} group`}>
       <p className="group__title">{blockTitle}</p>
-      <div className="group__checkboxes checkboxes ">
+      <div className="group__checkboxes checkboxes">
         {elements.map((e: any) => (
-          <CheckBox key={e.id} e={e} handleCheckBox={handleCheckBox} />
+          <CheckBox key={e.id} e={e} checked={e.id === userData[e.name]} />
         ))}
       </div>
     </div>

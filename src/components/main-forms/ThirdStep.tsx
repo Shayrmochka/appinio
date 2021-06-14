@@ -1,17 +1,15 @@
 import React from 'react';
 import GroupWrapper from '../elements/GroupWrapper';
 import CharacterBlock from '../elements/CharacterBlock';
+import ScrollToTopOnMount from '../../utilites/ScrollToTopOnMount';
 import { dataThird as data } from '../../data';
 
 const ThirdStep = () => {
-  const handleCheckBox = (event: any) => {
-    const { id, checked } = event.target;
-    //console.log(id, checked);
-  };
   return (
     <div className="step-wrapper">
+      <ScrollToTopOnMount />
       <form className="form">
-        <GroupWrapper data={data} handleCheckBox={handleCheckBox} />
+        <GroupWrapper data={data} />
         <CharacterBlock />
       </form>
     </div>

@@ -4,23 +4,30 @@ import './ProgressBar.css';
 interface ProgressBarProps {
   steps: any;
   activeStep: number;
+  setActiveStep: any;
 }
 
-const StepBar: React.FC<ProgressBarProps> = ({ steps, activeStep }) => {
+const StepBar: React.FC<ProgressBarProps> = ({
+  steps,
+  activeStep,
+  setActiveStep,
+}) => {
   return (
     <div className="progress-container">
       <ul className="progress-bar">
-        {steps.map((e: string, i: number) => (
+        {steps.map((e: any, i: number) => (
           <li
+            onClick={() => setActiveStep(i)}
             key={i}
             className={`progress-bar__step 
-            ${i < activeStep ? 'complete' : ''} 
-            ${i === activeStep ? 'active' : ''}`}
+            ${e.complete && 'complete'}
+            ${activeStep === e.stepNumber && 'active'}
+            `}
           >
             <p
               className={`progress-bar__step-number
-              ${i < activeStep ? 'complete' : ''} 
-              ${i === activeStep ? 'active' : ''}
+              ${e.complete && 'complete'}
+              ${activeStep === e.stepNumber && 'active'}
             `}
             >
               {i + 1}
@@ -34,3 +41,23 @@ const StepBar: React.FC<ProgressBarProps> = ({ steps, activeStep }) => {
 };
 
 export default StepBar;
+
+// <li
+//             onClick={() => setActiveStep(i)}
+//             key={i}
+//             className={`progress-bar__step
+//             ${i < activeStep ? 'complete' : ''}
+//             ${i === activeStep ? 'active' : ''}
+
+//             `}
+//           >
+//             <p
+//               className={`progress-bar__step-number
+//               ${i < activeStep ? 'complete' : ''}
+//               ${i === activeStep ? 'active' : ''}
+//             `}
+//             >
+//               {i + 1}
+//             </p>
+//             {/* {e} */}
+//           </li>

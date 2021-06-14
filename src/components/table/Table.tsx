@@ -1,7 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Table.css';
 
 function Table() {
+  const [rows, setRows] = useState([1]);
+
+  console.log(rows);
+
+  const addRow = (event: any) => {
+    event.preventDefault();
+    setRows([...rows, rows.length + 1]);
+  };
+
+  const deleteRow = (event: any) => {
+    event.preventDefault();
+    const deleted = rows.filter((e) => e !== rows.length);
+    setRows(deleted);
+  };
+
   return (
     <div>
       <table className="iksweb">
@@ -19,28 +34,34 @@ function Table() {
             <td></td>
             <td>Month Year</td>
           </tr>
-          <tr>
-            <td rowSpan={2}>
-              <input name="1-country" id="1-country" />
-            </td>
-            <td>From</td>
-            <td>
-              <input name="1-from" id="1-from" />
-            </td>
-            <td rowSpan={2}>
-              <input name="1-persons" id="1-persons" />
-            </td>
-            <td rowSpan={2}>
-              <input name="1-address" id="1-address" />
-            </td>
-          </tr>
-          <tr>
-            <td>To</td>
-            <td>
-              <input name="1-to" id="1-to" />
-            </td>
-          </tr>
-          <tr>
+
+          {rows.map((e) => (
+            <>
+              <tr>
+                <td rowSpan={2}>
+                  <input name={`${e}-country`} id={`${e}-country`} />
+                </td>
+                <td>From</td>
+                <td>
+                  <input name={`${e}-from`} id={`${e}-from`} />
+                </td>
+                <td rowSpan={2}>
+                  <input name={`${e}-persons`} id={`${e}-persons`} />
+                </td>
+                <td rowSpan={2}>
+                  <input name={`${e}-address`} id={`${e}-address`} />
+                </td>
+              </tr>
+              <tr>
+                <td>To</td>
+                <td>
+                  <input name={`${e}-to`} id={`${e}-to`} />
+                </td>
+              </tr>
+            </>
+          ))}
+
+          {/* <tr>
             <td rowSpan={2}>
               <input name="2-country" id="2-country" />
             </td>
@@ -73,7 +94,7 @@ function Table() {
               <input name="3-persons" id="3-persons" />
             </td>
             <td rowSpan={2}>
-              <input name="2-address" id="2-address" />
+              <input name="3-address" id="3-address" />
             </td>
           </tr>
           <tr>
@@ -207,9 +228,16 @@ function Table() {
             <td>
               <input name="9-to" id="9-to" />
             </td>
-          </tr>
+          </tr> */}
         </tbody>
       </table>
+
+      <button className="button__back" onClick={deleteRow}>
+        Delete row
+      </button>
+      <button className="button__next" onClick={addRow}>
+        Add row
+      </button>
     </div>
   );
 }

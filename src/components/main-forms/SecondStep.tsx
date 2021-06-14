@@ -1,19 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import GroupWrapper from '../elements/GroupWrapper';
+import ScrollToTopOnMount from '../../utilites/ScrollToTopOnMount';
 
 import { dataSecond as data } from '../../data';
 import './Steps.css';
 
 const SecondStep = () => {
-  const handleCheckBox = (event: any) => {
-    const { id, checked } = event.target;
-    //console.log(id, checked);
-  };
-
   return (
     <div className="step-wrapper">
+      <ScrollToTopOnMount />
       <form className="form">
-        <GroupWrapper data={data} handleCheckBox={handleCheckBox} />
+        <GroupWrapper data={data} />
         <p className="group__title--compact">
           4. For each person included in the application, provide evidence of
           birth certificate, marriage certificate, or de facto relationship.
