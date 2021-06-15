@@ -1,7 +1,5 @@
 import React, { useContext } from 'react';
 import { UserDataContext } from '../../context/UserDataContext';
-import Select from 'react-select';
-import { DatePicker, DatePickerInput } from 'rc-datepicker';
 import 'moment/locale/it.js';
 
 interface InputDateProps {
@@ -16,7 +14,7 @@ const InputDate: React.FC<InputDateProps> = ({ element, status }) => {
     <div className="inputs__wrapper">
       <input
         key={element.name}
-        className="inputs__item"
+        className="inputs__item inputs--date"
         name={element.name}
         min="1900-01-01"
         max="2021-01-01"
@@ -27,6 +25,9 @@ const InputDate: React.FC<InputDateProps> = ({ element, status }) => {
         required
         onChange={handleChange}
       />
+      <label className="inputs__label inputs--date-label">
+        {element.placeholder}
+      </label>
     </div>
   );
 };

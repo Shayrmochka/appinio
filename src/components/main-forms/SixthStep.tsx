@@ -119,12 +119,14 @@ const SixthStep = ({ handleSubmit }: SixthStepProps) => {
             />
           ))}
 
-          <button className="button__back" onClick={deleteSignatyres}>
-            Delete Person
-          </button>
-          <button className="button__next" onClick={addSignatyres}>
-            Add Person
-          </button>
+          <div className="buttons__wrapper">
+            <button className="button__delete" onClick={deleteSignatyres}>
+              Delete Person
+            </button>
+            <button className="button__add" onClick={addSignatyres}>
+              Add Person
+            </button>
+          </div>
         </div>
       </form>
     </div>

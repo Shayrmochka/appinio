@@ -20,6 +20,7 @@ export const dataFirst = [
           },
           {
             name: '1-dateOfBirth',
+            type: 'date',
             placeholder: 'Date of birth',
           },
           {

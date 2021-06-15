@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import { UserDataContext } from '../../context/UserDataContext';
-import Select from 'react-select';
-import { DatePicker, DatePickerInput } from 'rc-datepicker';
+
 import 'moment/locale/it.js';
 
 interface InputProps {
@@ -11,18 +10,7 @@ interface InputProps {
 
 const Input: React.FC<InputProps> = ({ element, status }) => {
   const { userData, handleChange } = useContext(UserDataContext);
-  const options = [
-    {
-      value: {
-        id: 'test',
-        text: 'text',
-      },
-      label: 'Chocolate',
-    },
-    { value: 'strawberry', label: 'Strawberry' },
-    { value: 'vanilla', label: 'Vanilla' },
-  ];
-  const date = '2015-06-26';
+
   return (
     <div className="inputs__wrapper">
       <input
