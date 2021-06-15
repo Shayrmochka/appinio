@@ -20,7 +20,6 @@ const AdditionalInfo: React.FC<AdditionalInfoProps> = ({
   activeStep,
   formId,
 }) => {
-  console.log(formId);
   return (
     <div className="additional-info">
       <p className="additional-info__title">Current Step:</p>

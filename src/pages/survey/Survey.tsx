@@ -148,8 +148,6 @@ const Survey = () => {
     // });
   };
 
-  console.log(userData);
-
   const handleNext = () => {
     if (activeStep === steps.length) {
       return;

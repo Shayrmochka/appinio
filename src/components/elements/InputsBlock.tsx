@@ -19,7 +19,6 @@ const InputsBlock: React.FC<InputsBlockProps> = ({
 }) => {
   const { userData } = useContext(UserDataContext);
 
-  console.log(userData[renderFor]);
   const checkType = (element: any) => {
     if (element.type === 'date') {
       return (
