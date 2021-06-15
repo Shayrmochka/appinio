@@ -5,11 +5,15 @@ import GroupWrapper from '../elements/GroupWrapper';
 
 import { dataFifth as data } from '../../data';
 
-const FifthStep = () => {
+interface FifthStepProps {
+  handleSubmit: (event: any) => void;
+}
+
+const FifthStep = ({ handleSubmit }: FifthStepProps) => {
   return (
     <div className="step-wrapper">
       <ScrollToTopOnMount />
-      <form className="form">
+      <form className="form" id="fifthStep" onSubmit={handleSubmit}>
         <GroupWrapper data={data} />
       </form>
     </div>

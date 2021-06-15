@@ -5,11 +5,15 @@ import GroupWrapper from '../elements/GroupWrapper';
 
 import { dataFirst as data } from '../../data';
 
-const FirstStep = () => {
+interface FirstStepProps {
+  handleSubmit: (event: any) => void;
+}
+
+const FirstStep = ({ handleSubmit }: FirstStepProps) => {
   return (
     <div className="step-wrapper">
       <ScrollToTopOnMount />
-      <form className="form">
+      <form className="form" id="firstStep" onSubmit={handleSubmit}>
         <GroupWrapper data={data} />
       </form>
     </div>

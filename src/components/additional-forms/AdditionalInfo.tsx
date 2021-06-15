@@ -8,6 +8,7 @@ interface AdditionalInfoProps {
   stepTitle: string;
   stepsNumber: number;
   activeStep: number;
+  formId: string;
 }
 
 const AdditionalInfo: React.FC<AdditionalInfoProps> = ({
@@ -17,7 +18,9 @@ const AdditionalInfo: React.FC<AdditionalInfoProps> = ({
   stepTitle,
   stepsNumber,
   activeStep,
+  formId,
 }) => {
+  console.log(formId);
   return (
     <div className="additional-info">
       <p className="additional-info__title">Current Step:</p>
@@ -33,7 +36,12 @@ const AdditionalInfo: React.FC<AdditionalInfoProps> = ({
         )}
 
         {activeStep !== stepsNumber - 1 ? (
-          <button className="button__next" onClick={handleNext}>
+          <button
+            className="button__next"
+            form={formId}
+            type="submit"
+            //onClick={handleNext}
+          >
             Next
           </button>
         ) : (

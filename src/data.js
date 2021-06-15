@@ -206,14 +206,11 @@ export const dataSecond = [
         elementsType: 'input',
         elements: [
           {
-            name: '3-city',
+            name: '3-place-of-birth',
+            country: '3-country',
+            region: '3-region',
             type: 'select',
-            placeholder: 'Town/city',
-          },
-          {
-            name: '3-country',
-            type: 'select',
-            placeholder: 'Country',
+            placeholder: 'Place of birth',
           },
         ],
       },
@@ -329,17 +326,16 @@ export const dataSecond = [
         blockTitle:
           'Does this person hold an identity card or identity number issued by their government eg. National identity card?',
         elementsType: 'checkbox',
-        style: 'form__group--without-border',
         elements: [
           {
             id: '3-card-no',
-            name: '3-card-no',
+            name: '3-card',
             value: false,
             label: 'No',
           },
           {
             id: '3-card-yes',
-            name: '3-card-yes',
+            name: '3-card',
             value: true,
             label: 'Yes',
           },
@@ -349,7 +345,8 @@ export const dataSecond = [
         id: '3013',
         blockTitle: 'Give details',
         elementsType: 'input',
-        style: 'form__group--hidden form__group--without-border',
+        renderFor: '3-card',
+        style: 'form__group--without-border',
         elements: [
           {
             name: '3-card-identify-number',
@@ -422,13 +419,13 @@ export const dataSecond = [
         elements: [
           {
             id: '3-goverment-student-no',
-            name: '3-goverment-student-no',
+            name: '3-goverment-student',
             value: false,
             label: 'No',
           },
           {
             id: '3-goverment-student-yes',
-            name: '3-goverment-student-yes',
+            name: '3-goverment-student',
             value: true,
             label: 'Yes',
           },
@@ -442,13 +439,13 @@ export const dataSecond = [
         elements: [
           {
             id: '3-supported-student-no',
-            name: '3-supported-student-no',
+            name: '3-supported-student',
             value: false,
             label: 'No',
           },
           {
             id: '3-supported-student-yes',
-            name: '3-supported-student-yes',
+            name: '3-supported-student',
             value: true,
             label: 'Yes',
           },
@@ -459,17 +456,16 @@ export const dataSecond = [
         blockTitle:
           'Before this application, has this person ever applied for an Australian visa?',
         elementsType: 'checkbox',
-        style: 'form__group--without-border',
         elements: [
           {
             id: '3-applied-visa-no',
-            name: '3-applied-visa-no',
+            name: '3-applied-visa',
             value: false,
             label: 'No',
           },
           {
             id: '3-applied-visa-yes',
-            name: '3-applied-visa-yes',
+            name: '3-applied-visa',
             value: true,
             label: 'Yes',
           },
@@ -479,7 +475,8 @@ export const dataSecond = [
         id: '3019',
         blockTitle: 'Give details',
         elementsType: 'input',
-        style: 'form__group--hidden form__group--without-border',
+        renderFor: '3-applied-visa',
+        style: 'form__group--without-border',
         elements: [
           {
             name: '3-date-of-application',
@@ -530,17 +527,16 @@ export const dataSecond = [
         id: '3021',
         blockTitle: 'Has this person ever held a Bridging visa E?',
         elementsType: 'checkbox',
-        style: 'form__group--without-border',
         elements: [
           {
             id: '3-bridging-visa-e-no',
-            name: '3-bridging-visa-e-no',
+            name: '3-bridging-visa-e',
             value: false,
             label: 'No',
           },
           {
             id: '3-bridging-visa-e-yes',
-            name: '3-bridging-visa-e-yes',
+            name: '3-bridging-visa-e',
             value: true,
             label: 'Yes',
           },
@@ -550,7 +546,8 @@ export const dataSecond = [
         id: '3022',
         blockTitle: 'Give details',
         elementsType: 'input',
-        style: 'form__group--hidden form__group--without-border',
+        renderFor: '3-bridging-visa-e',
+        style: 'form__group--without-border',
         elements: [
           {
             name: '3-bridging-visa-place',
@@ -571,17 +568,16 @@ export const dataSecond = [
         blockTitle:
           'Has this person ever had an Australian visa refused or cancelled?',
         elementsType: 'checkbox',
-        style: 'form__group--without-border',
         elements: [
           {
             id: '3-australian-visa-refused-no',
-            name: '3-australian-visa-refused-no',
+            name: '3-australian-visa-refused',
             value: false,
             label: 'No',
           },
           {
             id: '3-australian-visa-refused-yes',
-            name: '3-australian-visa-refused-yes',
+            name: '3-australian-visa-refused',
             value: true,
             label: 'Yes',
           },
@@ -591,7 +587,8 @@ export const dataSecond = [
         id: '3024',
         blockTitle: 'Give details',
         elementsType: 'input',
-        style: 'form__group--hidden form__group--without-border',
+        renderFor: '3-australian-visa-refused',
+        style: 'form__group--without-border',
         elements: [
           {
             name: '3-australian-visa-refused',
@@ -617,13 +614,13 @@ export const dataThird = [
         elements: [
           {
             id: '5-visited-no',
-            name: '5-visited-no',
+            name: '5-visited',
             value: false,
             label: 'No',
           },
           {
             id: '5-visited-yes',
-            name: '5-visited-yes',
+            name: '5-visited',
             value: true,
             label: 'Yes',
           },
@@ -633,6 +630,8 @@ export const dataThird = [
         id: '5002',
         blockTitle: 'Give details',
         elementsType: 'input',
+        renderFor: '5-visited',
+        style: 'form__group--without-border',
         elements: [
           {
             name: '5-name-first',
@@ -704,17 +703,16 @@ export const dataThird = [
         blockTitle:
           '6. Does any person included in this application, intend to enter a hospital or a health care facility (including nursing homes) while in Australia?',
         elementsType: 'checkbox',
-        style: 'form__group--without-border',
         elements: [
           {
             id: '6-hospital-no',
-            name: '6-hospital-no',
+            name: '6-hospital',
             value: false,
             label: 'No',
           },
           {
             id: '6-hospital-yes',
-            name: '6-hospital-yes',
+            name: '6-hospital',
             value: true,
             label: 'Yes',
           },
@@ -724,6 +722,8 @@ export const dataThird = [
         id: '6002',
         blockTitle: 'Give details',
         elementsType: 'input',
+        renderFor: '6-hospital',
+        style: 'form__group--without-border',
         elements: [
           {
             name: '6-hospital-details',
@@ -737,17 +737,16 @@ export const dataThird = [
         blockTitle:
           '7. Does any person included in this application, intend to work as, or study to be, a doctor, dentist, nurse or paramedic during your stay in Australia?',
         elementsType: 'checkbox',
-        style: 'form__group--without-border',
         elements: [
           {
             id: '7-work-no',
-            name: '7-work-no',
+            name: '7-work',
             value: false,
             label: 'No',
           },
           {
             id: '7-work-yes',
-            name: '7-work-yes',
+            name: '7-work',
             value: true,
             label: 'Yes',
           },
@@ -757,6 +756,8 @@ export const dataThird = [
         id: '7002',
         blockTitle: 'Give details',
         elementsType: 'input',
+        renderFor: '7-work',
+        style: 'form__group--without-border',
         elements: [
           {
             name: '7-work-details',
@@ -770,17 +771,16 @@ export const dataThird = [
         blockTitle:
           '8. Does any person included in this application, intend to work, or be a trainee, at a child care centre (including preschools and creches) while in Australia?',
         elementsType: 'checkbox',
-        style: 'form__group--without-border',
         elements: [
           {
             id: '8-work-no',
-            name: '8-work-no',
+            name: '8-work',
             value: false,
             label: 'No',
           },
           {
             id: '8-work-yes',
-            name: '8-work-yes',
+            name: '8-work',
             value: true,
             label: 'Yes',
           },
@@ -790,6 +790,8 @@ export const dataThird = [
         id: '8002',
         blockTitle: 'Give details',
         elementsType: 'input',
+        renderFor: '8-work',
+        style: 'form__group--without-border',
         elements: [
           {
             name: '8-work-details',
@@ -803,17 +805,16 @@ export const dataThird = [
         blockTitle:
           '9. Has any person included in this application ever had, or currently have, tuberculosis or been in close contact with a family member that has active tuberculosis or ever had a chest x-ray which showed an abnormality?',
         elementsType: 'checkbox',
-        style: 'form__group--without-border',
         elements: [
           {
             id: '9-tuberculosis-no',
-            name: '9-tuberculosis-no',
+            name: '9-tuberculosis',
             value: false,
             label: 'No',
           },
           {
             id: '9-tuberculosis-yes',
-            name: '9-tuberculosis-yes',
+            name: '9-tuberculosis',
             value: true,
             label: 'Yes',
           },
@@ -823,6 +824,8 @@ export const dataThird = [
         id: '9002',
         blockTitle: 'Give details',
         elementsType: 'input',
+        renderFor: '9-tuberculosis',
+        style: 'form__group--without-border',
         elements: [
           {
             name: '9-tuberculosis-details',
@@ -836,17 +839,16 @@ export const dataThird = [
         blockTitle:
           '10. During the proposed stay in Australia, does any person included in this application, expect to incur medical costs, or require treatment or medical follow up for: blood disorder; cancer; heart disease; hepatitis B or C and/or liver disease; HIV infection, including AIDS; kidney disease, including dialysis; mental illness; pregnancy; respiratory disease that has required hospital admission or oxygen therapy; other?',
         elementsType: 'checkbox',
-        style: 'form__group--without-border',
         elements: [
           {
             id: '10-for-no',
-            name: '10-for-no',
+            name: '10-for',
             value: false,
             label: 'No',
           },
           {
             id: '10-for-yes',
-            name: '10-for-yes',
+            name: '10-for',
             value: true,
             label: 'Yes',
           },
@@ -856,6 +858,8 @@ export const dataThird = [
         id: '10002',
         blockTitle: 'Give details',
         elementsType: 'input',
+        renderFor: '10-for',
+        style: 'form__group--without-border',
         elements: [
           {
             name: '10-for-details',
@@ -869,17 +873,16 @@ export const dataThird = [
         blockTitle:
           '11. Does any person included in this application, require assistance with mobility or care due to a medical condition?',
         elementsType: 'checkbox',
-        style: 'form__group--without-border',
         elements: [
           {
             id: '11-assistance-no',
-            name: '11-assistance-no',
+            name: '11-assistance',
             value: false,
             label: 'No',
           },
           {
             id: '11-assistance-yes',
-            name: '11-assistance-yes',
+            name: '11-assistance',
             value: true,
             label: 'Yes',
           },
@@ -889,6 +892,8 @@ export const dataThird = [
         id: '11002',
         blockTitle: 'Give details',
         elementsType: 'input',
+        renderFor: '11-assistance',
+        style: 'form__group--without-border',
         elements: [
           {
             name: '11-assistance-details',
@@ -902,17 +907,16 @@ export const dataThird = [
         blockTitle:
           '12. Has any person included in this application, undertaken a health examination for an Australian visa in the last 12 months?',
         elementsType: 'checkbox',
-        style: 'form__group--without-border',
         elements: [
           {
             id: '12-undertaken-no',
-            name: '12-undertaken-no',
+            name: '12-undertaken',
             value: false,
             label: 'No',
           },
           {
             id: '12-undertaken-yes',
-            name: '12-undertaken-yes',
+            name: '12-undertaken',
             value: true,
             label: 'Yes',
           },
@@ -922,6 +926,8 @@ export const dataThird = [
         id: '12002',
         blockTitle: 'Give details',
         elementsType: 'input',
+        renderFor: '12-undertaken',
+        style: 'form__group--without-border',
         elements: [
           {
             name: '12-undertaken-details',
@@ -943,17 +949,17 @@ export const dataFourth = [
         blockTitle:
           'been charged with any offence that is currently awaiting legal action?',
         elementsType: 'checkbox',
-        style: 'form__group--without-border',
+        style: 'form__group--without-border form__group--table',
         elements: [
           {
             id: '15-legal-no',
-            name: '15-legal-no',
+            name: '15-legal',
             value: false,
             label: 'No',
           },
           {
             id: '15-legal-yes',
-            name: '15-legal-yes',
+            name: '15-legal',
             value: true,
             label: 'Yes',
           },
@@ -965,16 +971,17 @@ export const dataFourth = [
         blockTitle:
           'been convicted of an offence in any country (including any conviction which is now removed from official records)?',
         elementsType: 'checkbox',
+        style: ' form__group--table',
         elements: [
           {
             id: '15-convicted-no',
-            name: '15-convicted-no',
+            name: '15-convicted',
             value: false,
             label: 'No',
           },
           {
             id: '15-convicted-yes',
-            name: '15-convicted-yes',
+            name: '15-convicted',
             value: true,
             label: 'Yes',
           },
@@ -986,16 +993,17 @@ export const dataFourth = [
         blockTitle:
           'been charged or convicted of family or domestic violence offences or similar related offences?',
         elementsType: 'checkbox',
+        style: ' form__group--table',
         elements: [
           {
             id: '15-charged-no',
-            name: '15-charged-no',
+            name: '15-charged',
             value: false,
             label: 'No',
           },
           {
             id: '15-charged-yes',
-            name: '15-charged-yes',
+            name: '15-charged',
             value: true,
             label: 'Yes',
           },
@@ -1007,16 +1015,17 @@ export const dataFourth = [
         blockTitle:
           'been the subject of a domestic or family violence order, or any other order, of a tribunal or court or other similar authority, for the personal protection of another person?',
         elementsType: 'checkbox',
+        style: ' form__group--table',
         elements: [
           {
             id: '15-order-no',
-            name: '15-order-no',
+            name: '15-order',
             value: false,
             label: 'No',
           },
           {
             id: '15-order-yes',
-            name: '15-order-yes',
+            name: '15-order',
             value: true,
             label: 'Yes',
           },
@@ -1027,16 +1036,17 @@ export const dataFourth = [
         id: '15005',
         blockTitle: 'been the subject of an arrest warrant or Interpol notice?',
         elementsType: 'checkbox',
+        style: ' form__group--table',
         elements: [
           {
             id: '15-interpol-no',
-            name: '15-interpol-no',
+            name: '15-interpol',
             value: false,
             label: 'No',
           },
           {
             id: '15-interpol-yes',
-            name: '15-interpol-yes',
+            name: '15-interpol',
             value: true,
             label: 'Yes',
           },
@@ -1048,16 +1058,17 @@ export const dataFourth = [
         blockTitle:
           'been found guilty of a sexually based offence involving a child (including where no conviction was recorded)?',
         elementsType: 'checkbox',
+        style: ' form__group--table',
         elements: [
           {
             id: '15-guilty-of-sex-no',
-            name: '15-guilty-of-sex-no',
+            name: '15-guilty-of-sex',
             value: false,
             label: 'No',
           },
           {
             id: '15-guilty-of-sex-yes',
-            name: '15-guilty-of-sex-yes',
+            name: '15-guilty-of-sex',
             value: true,
             label: 'Yes',
           },
@@ -1067,16 +1078,17 @@ export const dataFourth = [
         id: '15007',
         blockTitle: 'been named on a sex offender register?',
         elementsType: 'checkbox',
+        style: ' form__group--table',
         elements: [
           {
             id: '15-sex-offender-no',
-            name: '15-sex-offender-no',
+            name: '15-sex-offender',
             value: false,
             label: 'No',
           },
           {
             id: '15-sex-offender-yes',
-            name: '15-sex-offender-yes',
+            name: '15-sex-offender',
             value: true,
             label: 'Yes',
           },
@@ -1088,16 +1100,17 @@ export const dataFourth = [
         blockTitle:
           'been acquitted of any offence on the grounds of unsoundness of mind or insanity?',
         elementsType: 'checkbox',
+        style: ' form__group--table',
         elements: [
           {
             id: '15-acquitted-no',
-            name: '15-acquitted-no',
+            name: '15-acquitted',
             value: false,
             label: 'No',
           },
           {
             id: '15-acquitted-yes',
-            name: '15-acquitted-yes',
+            name: '15-acquitted',
             value: true,
             label: 'Yes',
           },
@@ -1108,16 +1121,17 @@ export const dataFourth = [
         id: '15009',
         blockTitle: 'been found by a court not fit to plead?',
         elementsType: 'checkbox',
+        style: ' form__group--table',
         elements: [
           {
             id: '15-not-plead-no',
-            name: '15-not-plead-no',
+            name: '15-not-plead',
             value: false,
             label: 'No',
           },
           {
             id: '15-not-plead-yes',
-            name: '15-not-plead-yes',
+            name: '15-not-plead',
             value: true,
             label: 'Yes',
           },
@@ -1129,16 +1143,17 @@ export const dataFourth = [
         blockTitle:
           'been directly or indirectly involved in, or associated with, activities which would represent a risk to national security in Australia or any other country?',
         elementsType: 'checkbox',
+        style: ' form__group--table',
         elements: [
           {
             id: '15-national-security-no',
-            name: '15-national-security-no',
+            name: '15-national-security',
             value: false,
             label: 'No',
           },
           {
             id: '15-national-security-yes',
-            name: '15-national-security-yes',
+            name: '15-national-security',
             value: true,
             label: 'Yes',
           },
@@ -1150,16 +1165,17 @@ export const dataFourth = [
         blockTitle:
           'been charged with, or indicted for: genocide, war crimes, crimes against humanity, torture, slavery, or any other crime that is otherwise of a serious international concern?',
         elementsType: 'checkbox',
+        style: ' form__group--table',
         elements: [
           {
             id: '15-genocide-no',
-            name: '15-genocide-no',
+            name: '15-genocide',
             value: false,
             label: 'No',
           },
           {
             id: '15-genocide-yes',
-            name: '15-genocide-yes',
+            name: '15-genocide',
             value: true,
             label: 'Yes',
           },
@@ -1171,16 +1187,17 @@ export const dataFourth = [
         blockTitle:
           'been associated with a person, group or organisation that has been/is involved in criminal conduct?',
         elementsType: 'checkbox',
+        style: ' form__group--table',
         elements: [
           {
             id: '15-criminal-conduct-no',
-            name: '15-criminal-conduct-no',
+            name: '15-criminal-conduct',
             value: false,
             label: 'No',
           },
           {
             id: '15-criminal-conduct-yes',
-            name: '15-criminal-conduct-yes',
+            name: '15-criminal-conduct',
             value: true,
             label: 'Yes',
           },
@@ -1192,16 +1209,17 @@ export const dataFourth = [
         blockTitle:
           'been associated with an organisation engaged in violence or engaged in acts of violence (including war, insurgency, freedom fighting, terrorism, protest) either overseas or in Australia?',
         elementsType: 'checkbox',
+        style: ' form__group--table',
         elements: [
           {
             id: '15-organisation-engaged-no',
-            name: '15-organisation-engaged-no',
+            name: '15-organisation-engaged',
             value: false,
             label: 'No',
           },
           {
             id: '15-organisation-engaged-yes',
-            name: '15-organisation-engaged-yes',
+            name: '15-organisation-engaged',
             value: true,
             label: 'Yes',
           },
@@ -1212,16 +1230,17 @@ export const dataFourth = [
         blockTitle:
           'served in a military force, police force, state sponsored/private militia or intelligence agency (including secret police)?',
         elementsType: 'checkbox',
+        style: ' form__group--table',
         elements: [
           {
             id: '15-military-force-no',
-            name: '15-military-force-no',
+            name: '15-military-force',
             value: false,
             label: 'No',
           },
           {
             id: '15-military-force-yes',
-            name: '15-military-force-yes',
+            name: '15-military-force',
             value: true,
             label: 'Yes',
           },
@@ -1233,16 +1252,17 @@ export const dataFourth = [
         blockTitle:
           'undergone any military/paramilitary training, been trained in weapons/explosives or in the manufacture of chemical/biological products?',
         elementsType: 'checkbox',
+        style: ' form__group--table',
         elements: [
           {
             id: '15-training-no',
-            name: '15-training-no',
+            name: '15-training',
             value: false,
             label: 'No',
           },
           {
             id: '15-training-yes',
-            name: '15-training-yes',
+            name: '15-training',
             value: true,
             label: 'Yes',
           },
@@ -1254,16 +1274,17 @@ export const dataFourth = [
         blockTitle:
           'been involved in people smuggling or people trafficking offences?',
         elementsType: 'checkbox',
+        style: ' form__group--table',
         elements: [
           {
             id: '15-smuggling-no',
-            name: '15-smuggling-no',
+            name: '15-smuggling',
             value: false,
             label: 'No',
           },
           {
             id: '15-smuggling-yes',
-            name: '15-smuggling-yes',
+            name: '15-smuggling',
             value: true,
             label: 'Yes',
           },
@@ -1275,16 +1296,17 @@ export const dataFourth = [
         blockTitle:
           'been removed, deported or excluded from any country (including Australia)?',
         elementsType: 'checkbox',
+        style: ' form__group--table',
         elements: [
           {
             id: '15-deported-no',
-            name: '15-deported-no',
+            name: '15-deported',
             value: false,
             label: 'No',
           },
           {
             id: '15-deported-yes',
-            name: '15-deported-yes',
+            name: '15-deported',
             value: true,
             label: 'Yes',
           },
@@ -1295,16 +1317,17 @@ export const dataFourth = [
         id: '150018',
         blockTitle: 'overstayed a visa in any country (including Australia)?',
         elementsType: 'checkbox',
+        style: ' form__group--table',
         elements: [
           {
             id: '15-overstayed-no',
-            name: '15-overstayed-no',
+            name: '15-overstayed',
             value: false,
             label: 'No',
           },
           {
             id: '15-overstayed-yes',
-            name: '15-overstayed-yes',
+            name: '15-overstayed',
             value: true,
             label: 'Yes',
           },
@@ -1315,16 +1338,17 @@ export const dataFourth = [
         blockTitle:
           'had any outstanding debts to the Australian Government or any public authority in Australia?',
         elementsType: 'checkbox',
+        style: ' form__group--table',
         elements: [
           {
             id: '15-outstanding-debts-no',
-            name: '15-outstanding-debts-no',
+            name: '15-outstanding-debts',
             value: false,
             label: 'No',
           },
           {
             id: '15-outstanding-debts-yes',
-            name: '15-outstanding-debts-yes',
+            name: '15-outstanding-debts',
             value: true,
             label: 'Yes',
           },
@@ -1336,6 +1360,8 @@ export const dataFourth = [
         blockTitle:
           'If you answered ‘Yes’ to any question at Question 15, give details, including the date of the charge, the outcome and any penalty imposed.',
         elementsType: 'input',
+        style: 'form__group--without-border',
+        renderFor: '15-outstanding-debts',
         elements: [
           {
             name: '15-yes-details-details',
@@ -1376,7 +1402,6 @@ export const dataFifth = [
         id: '16002',
         blockTitle: 'Please give details of the person who assisted you',
         elementsType: 'checkbox',
-        style: 'form__group--without-border',
         elements: [
           {
             id: '16-mr',
@@ -1453,13 +1478,13 @@ export const dataFifth = [
         elements: [
           {
             id: '17-migration-no',
-            name: '17-migration-no',
+            name: '17-migration',
             value: false,
             label: 'No',
           },
           {
             id: '17-migration-yes',
-            name: '17-migration-yes',
+            name: '17-migration',
             value: true,
             label: 'Yes',
           },
@@ -1474,13 +1499,13 @@ export const dataFifth = [
         elements: [
           {
             id: '18-pay-no',
-            name: '18-pay-no',
+            name: '18-pay',
             value: false,
             label: 'No',
           },
           {
             id: '18-pay-yes',
-            name: '18-pay-yes',
+            name: '18-pay',
             value: true,
             label: 'Yes',
           },

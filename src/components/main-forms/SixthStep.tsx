@@ -1,12 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ScrollToTopOnMount from '../../utilites/ScrollToTopOnMount';
+import Signature from '../elements/Signature';
 import './Steps.css';
 
-const SixthStep = () => {
+interface SixthStepProps {
+  handleSubmit: (event: any) => void;
+}
+
+const SixthStep = ({ handleSubmit }: SixthStepProps) => {
+  const [signatyres, setSignatyres] = useState([1]);
+
+  const addSignatyres = (event: any) => {
+    event.preventDefault();
+    setSignatyres([...signatyres, signatyres.length + 1]);
+  };
+
+  const deleteSignatyres = (event: any) => {
+    event.preventDefault();
+    const deleted = signatyres.filter((e) => e !== signatyres.length);
+    setSignatyres(deleted);
+  };
+
   return (
     <div className="step-wrapper">
       <ScrollToTopOnMount />
-      <form className="form ">
+      <form className="form " id="sixthStep" onSubmit={handleSubmit}>
         <div className="form__group--padding group">
           <p className="group-block__title">
             {' '}
@@ -88,6 +106,25 @@ const SixthStep = () => {
               </ul>
             </li>
           </ul>
+          <Signature
+            element={{ name: '21-primary-signature', type: 'date' }}
+            label={'Signature of primary person'}
+          />
+
+          {signatyres.map((e) => (
+            <Signature
+              key={e}
+              element={{ name: `21-secondary-signature-${e}`, type: 'date' }}
+              label={'Signature'}
+            />
+          ))}
+
+          <button className="button__back" onClick={deleteSignatyres}>
+            Delete Person
+          </button>
+          <button className="button__next" onClick={addSignatyres}>
+            Add Person
+          </button>
         </div>
       </form>
     </div>

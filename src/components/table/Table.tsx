@@ -4,8 +4,6 @@ import './Table.css';
 function Table() {
   const [rows, setRows] = useState([1]);
 
-  console.log(rows);
-
   const addRow = (event: any) => {
     event.preventDefault();
     setRows([...rows, rows.length + 1]);

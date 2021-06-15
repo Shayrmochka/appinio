@@ -20,7 +20,7 @@ const InputDate: React.FC<InputDateProps> = ({ element, status }) => {
         name={element.name}
         min="1900-01-01"
         max="2021-01-01"
-        disabled={!status}
+        //disabled={!status}
         value={userData[element.name]}
         id={element.name}
         type={element.type}

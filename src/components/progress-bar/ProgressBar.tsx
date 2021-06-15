@@ -24,6 +24,7 @@ const StepBar: React.FC<ProgressBarProps> = ({
             ${activeStep === e.stepNumber && 'active'}
             `}
           >
+            <span className="tooltiptext">{e.stepTitle}</span>
             <p
               className={`progress-bar__step-number
               ${e.complete && 'complete'}

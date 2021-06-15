@@ -4,11 +4,15 @@ import CharacterBlock from '../elements/CharacterBlock';
 import ScrollToTopOnMount from '../../utilites/ScrollToTopOnMount';
 import { dataThird as data } from '../../data';
 
-const ThirdStep = () => {
+interface ThirdStepProps {
+  handleSubmit: (event: any) => void;
+}
+
+const ThirdStep = ({ handleSubmit }: ThirdStepProps) => {
   return (
     <div className="step-wrapper">
       <ScrollToTopOnMount />
-      <form className="form">
+      <form className="form" id="thirdStep" onSubmit={handleSubmit}>
         <GroupWrapper data={data} />
         <CharacterBlock />
       </form>

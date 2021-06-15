@@ -32,6 +32,7 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  position: relative;
 }
 
 .progress-bar .progress-bar__step:before {
@@ -102,4 +103,23 @@
   color: white;
   background: #0088ff;
   border: 1px solid #0088ff;
+}
+
+.progress-bar__step .tooltiptext {
+  width: 220px;
+  background-color: black;
+  /* background-color: hsl(200deg 87% 15%); */
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  transition: opacity 0.5s;
+  position: absolute;
+  z-index: 1;
+  bottom: 100%;
+  opacity: 0;
+}
+
+.progress-bar__step:hover .tooltiptext {
+  opacity: 1;
 }

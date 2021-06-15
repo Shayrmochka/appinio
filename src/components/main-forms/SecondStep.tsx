@@ -5,11 +5,15 @@ import ScrollToTopOnMount from '../../utilites/ScrollToTopOnMount';
 import { dataSecond as data } from '../../data';
 import './Steps.css';
 
-const SecondStep = () => {
+interface SecondStepProps {
+  handleSubmit: (event: any) => void;
+}
+
+const SecondStep = ({ handleSubmit }: SecondStepProps) => {
   return (
     <div className="step-wrapper">
       <ScrollToTopOnMount />
-      <form className="form">
+      <form className="form" id="secondStep" onSubmit={handleSubmit}>
         <GroupWrapper data={data} />
         <p className="group__title--compact">
           4. For each person included in the application, provide evidence of

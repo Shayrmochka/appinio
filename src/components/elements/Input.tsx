@@ -35,6 +35,7 @@ const Input: React.FC<InputProps> = ({ element, status }) => {
         type={element.type}
         required
         onChange={handleChange}
+        //defaultValue="qwe"
       />
       <label className="inputs__label">{element.placeholder}</label>
     </div>

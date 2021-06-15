@@ -22,3 +22,16 @@ body {
   width: 1280px;
   margin: 0 auto;
 }
+
+#canvas {
+  border: 1px solid hsl(208deg 20% 87%);
+}
+
+.signature__container {
+  max-width: 400px;
+}
+
+.signature__label {
+  padding: 10px 0;
+  font-weight: 500;
+}
