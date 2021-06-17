@@ -20,20 +20,41 @@ type Coordinate = {
 };
 
 const Canvas = ({ width, height, label, element }: CanvasProps) => {
-  const { userData, setUserData, handleCanvas } = useContext(UserDataContext);
+  const { handleCanvas } = useContext(UserDataContext);
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  //const [canvasData, setCanvasData] = useState<any>([]);
+
   const [isPainting, setIsPainting] = useState(false);
   const [mousePosition, setMousePosition] =
     useState<Coordinate | undefined>(undefined);
 
-  const startPaint = useCallback((event: MouseEvent) => {
-    const coordinates = getCoordinates(event);
-    if (coordinates) {
-      setMousePosition(coordinates);
-      setIsPainting(true);
-    }
-  }, []);
+  const getCoordinates = useCallback(
+    (event: MouseEvent): Coordinate | undefined => {
+      if (!canvasRef.current) {
+        return;
+      }
+
+      const canvas: HTMLCanvasElement = canvasRef.current;
+
+      handleCanvas(element, event, canvas);
+      //console.log(...userData[element.name]);
+      return {
+        x: event.pageX - canvas.offsetLeft,
+        y: event.pageY - canvas.offsetTop,
+      };
+    },
+    [handleCanvas, element]
+  );
+
+  const startPaint = useCallback(
+    (event: MouseEvent) => {
+      const coordinates = getCoordinates(event);
+      if (coordinates) {
+        setMousePosition(coordinates);
+        setIsPainting(true);
+      }
+    },
+    [getCoordinates]
+  );
 
   useEffect(() => {
     if (!canvasRef.current) {
@@ -56,7 +77,7 @@ const Canvas = ({ width, height, label, element }: CanvasProps) => {
         }
       }
     },
-    [isPainting, mousePosition]
+    [isPainting, mousePosition, getCoordinates]
   );
 
   useEffect(() => {
@@ -87,21 +108,6 @@ const Canvas = ({ width, height, label, element }: CanvasProps) => {
       canvas.removeEventListener('mouseleave', exitPaint);
     };
   }, [exitPaint]);
-
-  const getCoordinates = (event: MouseEvent): Coordinate | undefined => {
-    if (!canvasRef.current) {
-      return;
-    }
-
-    const canvas: HTMLCanvasElement = canvasRef.current;
-
-    handleCanvas(element, event, canvas);
-    //console.log(...userData[element.name]);
-    return {
-      x: event.pageX - canvas.offsetLeft,
-      y: event.pageY - canvas.offsetTop,
-    };
-  };
 
   const drawLine = (
     originalMousePosition: Coordinate,

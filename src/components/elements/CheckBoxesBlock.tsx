@@ -1,18 +1,21 @@
-import React, { useCallback, useContext, useState } from 'react';
-import { isTemplateExpression } from 'typescript';
+import React, { useContext } from 'react';
 import { UserDataContext } from '../../context/UserDataContext';
 import CheckBox from './CheckBox';
 
 interface CheckBoxesBlockProps {
-  blockTitle: any;
+  blockTitle: string;
   elements: any;
-  style: any;
+  style: string;
+  form: string;
+  render: any;
 }
 
 const CheckBoxesBlock: React.FC<CheckBoxesBlockProps> = ({
   blockTitle,
   elements,
   style,
+  form,
+  render,
 }) => {
   const { userData } = useContext(UserDataContext);
 
@@ -21,8 +24,12 @@ const CheckBoxesBlock: React.FC<CheckBoxesBlockProps> = ({
       <p className="group__title">{blockTitle}</p>
       <div className="group__checkboxes checkboxes">
         {elements.map((e: any) => (
-          <CheckBox key={e.id} e={e} checked={e.id === userData[e.name]} />
+          <CheckBox key={e.id} e={e} form={form} render={render} />
         ))}
+
+        {userData[form][elements[0].name].error && (
+          <p className="error-message">Group cannot be empty*</p>
+        )}
       </div>
     </div>
   );

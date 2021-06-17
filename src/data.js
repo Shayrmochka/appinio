@@ -1,6 +1,7 @@
 export const dataFirst = [
   {
     id: '1000',
+    form: 'firstStep',
     groupTitle:
       'Part A - Details of the primary visa holder or applicant (the primary person)',
     groupInfo: [
@@ -103,6 +104,8 @@ export const dataFirst = [
 export const dataSecond = [
   {
     id: '3000',
+    form: 'secondStep',
+
     groupTitle: 'Details of person(s) included in this application',
     groupInfo: [
       {
@@ -127,6 +130,7 @@ export const dataSecond = [
         blockTitle:
           'Have they been known by any other names? (including name at birth, previous married names, aliases)',
         elementsType: 'checkbox',
+        render: ['3-other-family-name', '3-other-given-names'],
         elements: [
           {
             id: '3-no',
@@ -234,7 +238,7 @@ export const dataSecond = [
           {
             id: '3-married',
             name: '3-relationship-status',
-            value: true,
+            value: '3-married',
             label: 'Married',
           },
           {
@@ -327,6 +331,7 @@ export const dataSecond = [
         blockTitle:
           'Does this person hold an identity card or identity number issued by their government eg. National identity card?',
         elementsType: 'checkbox',
+        render: ['3-card-identify-number', '3-card-country-issue'],
         elements: [
           {
             id: '3-card-no',
@@ -377,39 +382,39 @@ export const dataSecond = [
         elements: [
           {
             id: '3-citizen',
-            name: '3-citizen',
-            value: true,
+            name: '3-stasus-in-country',
+            value: '3-citizen',
             label: 'Citizen',
           },
           {
             id: '3-permanent-resident',
-            name: '3-permanent-resident',
-            value: true,
+            name: '3-stasus-in-country',
+            value: '3-permanent-resident',
             label: 'Permanent resident',
           },
           {
             id: '3-temporary-resident',
-            name: '3-temporary-resident',
+            name: '3-stasus-in-country',
             label: 'Temporary resident',
-            value: true,
+            value: '3-temporary-resident',
           },
           {
             id: '3-no-legal-status',
-            name: '3-no-legal-status',
-            value: true,
+            name: '3-stasus-in-country',
+            value: '3-no-legal-status',
             label: 'No legal status',
           },
           {
             id: '3-visitor',
-            name: '3-visitor',
+            name: '3-stasus-in-country',
             label: 'Visitor',
-            value: true,
+            value: '3-visitor',
           },
           {
             id: '3-other',
-            name: '3-other',
+            name: '3-stasus-in-country',
             label: 'Other',
-            value: true,
+            value: '3-other',
           },
         ],
       },
@@ -457,6 +462,11 @@ export const dataSecond = [
         blockTitle:
           'Before this application, has this person ever applied for an Australian visa?',
         elementsType: 'checkbox',
+        render: [
+          '3-date-of-application',
+          '3-location-of-application',
+          '3-visa-applied-for',
+        ],
         elements: [
           {
             id: '3-applied-visa-no',
@@ -500,26 +510,26 @@ export const dataSecond = [
         elements: [
           {
             id: '3-granted',
-            name: '3-granted',
-            value: true,
+            name: '3-visa-or-application',
+            value: '3-granted',
             label: 'Granted',
           },
           {
             id: '3-refused',
-            name: '3-refused',
-            value: true,
+            name: '3-visa-or-application',
+            value: '3-refused',
             label: 'Refused',
           },
           {
             id: '3-withdrawn',
-            name: '3-withdrawn',
+            name: '3-visa-or-application',
             label: 'Withdrawn',
-            value: true,
+            value: '3-withdrawn',
           },
           {
             id: '3-pending',
-            name: '3-pending',
-            value: true,
+            name: '3-visa-or-application',
+            value: '3-pending',
             label: 'Pending',
           },
         ],
@@ -528,6 +538,11 @@ export const dataSecond = [
         id: '3021',
         blockTitle: 'Has this person ever held a Bridging visa E?',
         elementsType: 'checkbox',
+        render: [
+          '3-bridging-visa-place',
+          '3-bridging-visa-issue',
+          '3-bridging-visa-expiry',
+        ],
         elements: [
           {
             id: '3-bridging-visa-e-no',
@@ -569,6 +584,7 @@ export const dataSecond = [
         blockTitle:
           'Has this person ever had an Australian visa refused or cancelled?',
         elementsType: 'checkbox',
+        render: ['3-australian-visa-refused-details'],
         elements: [
           {
             id: '3-australian-visa-refused-no',
@@ -592,7 +608,7 @@ export const dataSecond = [
         style: 'form__group--without-border',
         elements: [
           {
-            name: '3-australian-visa-refused',
+            name: '3-australian-visa-refused-details',
             placeholder: 'Give details',
           },
         ],
@@ -604,6 +620,7 @@ export const dataSecond = [
 export const dataThird = [
   {
     id: '5000',
+    form: 'thirdStep',
     groupTitle: 'Health',
     groupInfo: [
       {
@@ -612,6 +629,12 @@ export const dataThird = [
           '5. In the last 5 years, has any person included in this application, visited, or lived, outside their country of passport for more than 3 consecutive months?',
         elementsType: 'checkbox',
         style: 'form__group--without-border',
+        render: [
+          '5-name-first',
+          '5-country-first',
+          '5-date-from-first',
+          '5-date-to-first',
+        ],
         elements: [
           {
             id: '5-visited-no',
@@ -632,6 +655,7 @@ export const dataThird = [
         blockTitle: 'Give details',
         elementsType: 'input',
         renderFor: '5-visited',
+        addMore: true,
         style: 'form__group--without-border',
         elements: [
           {
@@ -641,69 +665,74 @@ export const dataThird = [
           {
             name: '5-country-first',
             placeholder: 'Country',
+            type: 'select',
           },
           {
             name: '5-date-from-first',
+            type: 'date',
             placeholder: 'Date from',
           },
           {
             name: '5-date-to-first',
+            type: 'date',
             placeholder: 'Date to',
           },
         ],
       },
-      {
-        id: '5003',
-        blockTitle: '',
-        elementsType: 'input',
-        elements: [
-          {
-            name: '5-name-second',
-            placeholder: 'Name',
-          },
-          {
-            name: '5-country-second',
-            placeholder: 'Country',
-          },
-          {
-            name: '5-date-from-second',
-            placeholder: 'Date from',
-          },
-          {
-            name: '5-date-to-second',
-            placeholder: 'Date to',
-          },
-        ],
-      },
-      {
-        id: '5004',
-        blockTitle: '',
-        elementsType: 'input',
-        elements: [
-          {
-            name: '5-name-third',
-            placeholder: 'Name',
-          },
-          {
-            name: '5-country-third',
-            placeholder: 'Country',
-          },
-          {
-            name: '5-date-from-third',
-            placeholder: 'Date from',
-          },
-          {
-            name: '5-date-to-third',
-            placeholder: 'Date to',
-          },
-        ],
-      },
+      // {
+      //   id: '5003',
+      //   blockTitle: '',
+      //   renderFor: '5-visited',
+      //   elementsType: 'input',
+      //   elements: [
+      //     {
+      //       name: '5-name-second',
+      //       placeholder: 'Name',
+      //     },
+      //     {
+      //       name: '5-country-second',
+      //       placeholder: 'Country',
+      //     },
+      //     {
+      //       name: '5-date-from-second',
+      //       placeholder: 'Date from',
+      //     },
+      //     {
+      //       name: '5-date-to-second',
+      //       placeholder: 'Date to',
+      //     },
+      //   ],
+      // },
+      // {
+      //   id: '5004',
+      //   blockTitle: '',
+      //   elementsType: 'input',
+      //   elements: [
+      //     {
+      //       name: '5-name-third',
+      //       placeholder: 'Name',
+      //     },
+      //     {
+      //       name: '5-country-third',
+      //       placeholder: 'Country',
+      //     },
+      //     {
+      //       name: '5-date-from-third',
+      //       placeholder: 'Date from',
+      //     },
+      //     {
+      //       name: '5-date-to-third',
+      //       placeholder: 'Date to',
+      //     },
+      //   ],
+      // },
 
       {
         id: '6001',
         blockTitle:
           '6. Does any person included in this application, intend to enter a hospital or a health care facility (including nursing homes) while in Australia?',
         elementsType: 'checkbox',
+        render: ['6-hospital-details'],
         elements: [
           {
             id: '6-hospital-no',
@@ -738,6 +767,7 @@ export const dataThird = [
         blockTitle:
           '7. Does any person included in this application, intend to work as, or study to be, a doctor, dentist, nurse or paramedic during your stay in Australia?',
         elementsType: 'checkbox',
+        render: ['7-work-details'],
         elements: [
           {
             id: '7-work-no',
@@ -772,6 +802,7 @@ export const dataThird = [
         blockTitle:
           '8. Does any person included in this application, intend to work, or be a trainee, at a child care centre (including preschools and creches) while in Australia?',
         elementsType: 'checkbox',
+        render: ['8-work-details'],
         elements: [
           {
             id: '8-work-no',
@@ -806,6 +837,7 @@ export const dataThird = [
         blockTitle:
           '9. Has any person included in this application ever had, or currently have, tuberculosis or been in close contact with a family member that has active tuberculosis or ever had a chest x-ray which showed an abnormality?',
         elementsType: 'checkbox',
+        render: ['9-tuberculosis-details'],
         elements: [
           {
             id: '9-tuberculosis-no',
@@ -840,6 +872,7 @@ export const dataThird = [
         blockTitle:
           '10. During the proposed stay in Australia, does any person included in this application, expect to incur medical costs, or require treatment or medical follow up for: blood disorder; cancer; heart disease; hepatitis B or C and/or liver disease; HIV infection, including AIDS; kidney disease, including dialysis; mental illness; pregnancy; respiratory disease that has required hospital admission or oxygen therapy; other?',
         elementsType: 'checkbox',
+        render: ['10-for-details'],
         elements: [
           {
             id: '10-for-no',
@@ -874,6 +907,7 @@ export const dataThird = [
         blockTitle:
           '11. Does any person included in this application, require assistance with mobility or care due to a medical condition?',
         elementsType: 'checkbox',
+        render: ['11-assistance-details'],
         elements: [
           {
             id: '11-assistance-no',
@@ -908,6 +942,7 @@ export const dataThird = [
         blockTitle:
           '12. Has any person included in this application, undertaken a health examination for an Australian visa in the last 12 months?',
         elementsType: 'checkbox',
+        render: ['12-undertaken-details'],
         elements: [
           {
             id: '12-undertaken-no',
@@ -943,6 +978,7 @@ export const dataThird = [
 export const dataFourth = [
   {
     id: '15000',
+    form: 'fourthStep',
     groupTitle: '15. Has any person included in this application, ever:',
     groupInfo: [
       {
@@ -977,13 +1013,13 @@ export const dataFourth = [
           {
             id: '15-convicted-no',
             name: '15-convicted',
-            value: false,
+            value: 'Yes',
             label: 'No',
           },
           {
             id: '15-convicted-yes',
             name: '15-convicted',
-            value: true,
+            value: 'No',
             label: 'Yes',
           },
         ],
@@ -1339,6 +1375,7 @@ export const dataFourth = [
         blockTitle:
           'had any outstanding debts to the Australian Government or any public authority in Australia?',
         elementsType: 'checkbox',
+        render: ['15-yes-details-details'],
         style: ' form__group--table',
         elements: [
           {
@@ -1377,6 +1414,7 @@ export const dataFourth = [
 export const dataFifth = [
   {
     id: '16000',
+    form: 'fifthStep',
     groupTitle: 'Part B – Assistance with this form',
     groupInfo: [
       {
@@ -1387,13 +1425,13 @@ export const dataFifth = [
         elements: [
           {
             id: '16-assistance-no',
-            name: '16-assistance-no',
+            name: '16-assistance',
             value: false,
             label: 'No',
           },
           {
             id: '16-assistance-yes',
-            name: '16-assistance-yes',
+            name: '16-assistance',
             value: true,
             label: 'Yes',
           },
@@ -1406,32 +1444,32 @@ export const dataFifth = [
         elements: [
           {
             id: '16-mr',
-            name: '16-mr',
-            value: 'yes',
+            name: '16-assisted-person',
+            value: '16-mr',
             label: 'Mr',
           },
           {
             id: '16-mrs',
-            name: '16-mrs',
-            value: 'yes',
+            name: '16-assisted-person',
+            value: '16-mrs',
             label: 'Mrs',
           },
           {
             id: '16-miss',
-            name: '16-miss',
+            name: '16-assisted-person',
             label: 'Miss',
-            value: 'yes',
+            value: '16-miss',
           },
           {
             id: '16-ms',
-            name: '16-ms',
-            value: 'yes',
+            name: '16-assisted-person',
+            value: '16-ms',
             label: 'Ms',
           },
           {
             id: '16-other',
-            name: '16-other',
-            value: 'yes',
+            name: '16-assisted-person',
+            value: '16-other',
             label: 'Other',
           },
         ],
@@ -1516,6 +1554,7 @@ export const dataFifth = [
   },
   {
     id: '19000',
+    form: 'fifthStep',
     groupTitle: 'Part C – Options for receiving written communications',
     groupInfo: [
       {
@@ -1526,32 +1565,32 @@ export const dataFifth = [
         elements: [
           {
             id: '19-myself',
-            name: '19-myself',
-            value: 'yes',
+            name: '19-communications-sent',
+            value: '19-myself',
             label: 'Myself',
           },
           {
             id: '19-recipient',
-            name: '19-recipient',
-            value: 'yes',
+            name: '19-communications-sent',
+            value: '19-recipient',
             label: 'Authorised recipient',
           },
           {
             id: '19-agent',
-            name: '19-agent',
+            name: '19-communications-sent',
             label: 'Migration agent',
-            value: 'yes',
+            value: '19-agent',
           },
           {
             id: '19-practitioner',
-            name: '19-practitioner',
-            value: 'yes',
+            name: '19-communications-sent',
+            value: '19-practitioner',
             label: 'Legal practitioner',
           },
           {
             id: '19-exempt',
-            name: '19-exempt',
-            value: 'yes',
+            name: '19-communications-sent',
+            value: '19-exempt',
             label: 'Exempt person',
           },
         ],
@@ -1560,6 +1599,7 @@ export const dataFifth = [
   },
   {
     id: '20000',
+    form: 'fifthStep',
     groupTitle: 'Part D – Payment details',
     groupInfo: [
       {
@@ -1567,10 +1607,42 @@ export const dataFifth = [
         blockTitle:
           '20. Make your payment electronically through the ‘My Payments’ section of ImmiAccount. Sign into, or create, your ImmiAccount and select My Payments>Manage Payments>Pre-Pay Paper Service, at www.homeaffairs.gov.au/immiaccount',
         elementsType: 'input',
+        link: ` homeaffairs.gov.au/immiaccount`,
         elements: [
           {
             name: '20-payment-details',
             placeholder: 'Payment details',
+          },
+        ],
+      },
+    ],
+  },
+];
+
+export const characterBlock = [
+  {
+    id: '14000',
+    groupTitle: '',
+    form: 'thirdStep',
+    groupInfo: [
+      {
+        id: '14001',
+        blockTitle:
+          '14. In the last 10 years, has any person included in this application, visited, or lived, outside their usual country of residence for a cumulative period of 12 months or more, since turning 16 years of age?',
+        elementsType: 'checkbox',
+        render: [],
+        elements: [
+          {
+            id: '14-cumulative-period-no',
+            name: '14-cumulative-period',
+            value: false,
+            label: 'No',
+          },
+          {
+            id: '14-cumulative-period-yes',
+            name: '14-cumulative-period',
+            value: true,
+            label: 'Yes',
           },
         ],
       },

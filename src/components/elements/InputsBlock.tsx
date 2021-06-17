@@ -1,4 +1,5 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { UserDataContext } from '../../context/UserDataContext';
 import Input from './Input';
 import InputDate from './InputDate';
@@ -9,6 +10,9 @@ interface InputsBlockProps {
   elements: any;
   style: any;
   renderFor: any;
+  link: any;
+  addMore: boolean;
+  form: string;
 }
 
 const InputsBlock: React.FC<InputsBlockProps> = ({
@@ -16,8 +20,45 @@ const InputsBlock: React.FC<InputsBlockProps> = ({
   elements,
   style,
   renderFor,
+  link,
+  addMore,
+  form,
 }) => {
-  const { userData } = useContext(UserDataContext);
+  const { userData, setUserData } = useContext(UserDataContext);
+  const [rows, setRows] = useState([1]);
+
+  const addRow = (event: any) => {
+    event.preventDefault();
+    setUserData({
+      thirdStep: {
+        ...userData['thirdStep'],
+        [`5-name-first-${rows.length + 1}`]: {
+          // ...userData['thirdStep'][`${rows.length+1}-country`],
+          text: '',
+          error: false,
+        },
+        [`5-country-first-${rows.length + 1}`]: {
+          text: '',
+          error: false,
+        },
+        [`5-date-from-first-${rows.length + 1}`]: {
+          text: '',
+          error: false,
+        },
+        [`5-date-to-first${rows.length + 1}`]: {
+          text: '',
+          error: false,
+        },
+      },
+    });
+    setRows([...rows, rows.length + 1]);
+  };
+
+  const deleteRow = (event: any) => {
+    event.preventDefault();
+    const deleted = rows.filter((e) => e !== rows.length);
+    setRows(deleted);
+  };
 
   const checkType = (element: any) => {
     if (element.type === 'date') {
@@ -25,7 +66,9 @@ const InputsBlock: React.FC<InputsBlockProps> = ({
         <InputDate
           key={element.name}
           element={element}
-          status={renderFor ? !!userData[renderFor] : true}
+          status={true}
+          //status={renderFor ? !!userData[form][renderFor].text : true}
+          form={form}
         />
       );
     } else if (element.type === 'select') {
@@ -33,7 +76,9 @@ const InputsBlock: React.FC<InputsBlockProps> = ({
         <InputSelect
           key={element.name}
           element={element}
-          status={renderFor ? !!userData[renderFor] : true}
+          status={true}
+          //status={renderFor ? !!userData[form][renderFor].text : true}
+          form={form}
         />
       );
     }
@@ -42,20 +87,46 @@ const InputsBlock: React.FC<InputsBlockProps> = ({
       <Input
         key={element.name}
         element={element}
-        status={renderFor ? !!userData[renderFor] : true}
+        //status={renderFor ? !!userData[form][renderFor].text : true}
+        status={true}
+        form={form}
       />
     );
   };
   return (
     <div
       className={`form__group ${style} ${
-        renderFor && !userData[renderFor] && 'form__group--hidden'
+        renderFor && !userData[form][renderFor] && 'form__group--hidden'
       } group`}
     >
-      <p className="group__title">{blockTitle}</p>
+      <p className="group__title">
+        {blockTitle}{' '}
+        {link && (
+          <strong>
+            <Link
+              to={{
+                pathname: `https://${link}`,
+              }}
+              target="_blank"
+            >
+              {link}
+            </Link>
+          </strong>
+        )}
+      </p>
       <div className="group__inputs inputs">
-        {elements.map((element: any) => checkType(element))}
+        {rows.map((e) => elements.map((element: any) => checkType(element)))}
       </div>
+      {addMore && (
+        <div className="buttons__wrapper">
+          <button className="button__delete" onClick={deleteRow}>
+            Delete row
+          </button>
+          <button className="button__add" onClick={addRow}>
+            Add row
+          </button>
+        </div>
+      )}
     </div>
   );
 };

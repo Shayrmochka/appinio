@@ -32,3 +32,8 @@ table.iksweb td input,
 table.iksweb td {
   text-align: center;
 }
+
+table.iksweb td .inputs__wrapper input {
+  border: none;
+  height: auto;
+}

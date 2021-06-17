@@ -11,6 +11,7 @@ import './UiKit.css';
 const inputs = [
   {
     id: '1000',
+    form: 'firstStep',
     groupTitle: 'GroupTitle',
     groupInfo: [
       {
@@ -52,6 +53,7 @@ const inputs = [
 const inputSelect = [
   {
     id: '1000',
+    form: 'firstStep',
     groupTitle: 'GroupTitle',
     groupInfo: [
       {
@@ -75,6 +77,7 @@ const inputSelect = [
 const checkbox = [
   {
     id: '1000',
+    form: 'firstStep',
     groupTitle: 'GroupTitle',
     groupInfo: [
       {
@@ -212,18 +215,22 @@ function UiKit() {
                 <Input
                   element={inputs[0].groupInfo[0].elements[0]}
                   status={false}
+                  form={inputs[0].form}
                 />
                 <Input
                   element={inputs[0].groupInfo[0].elements[0]}
                   status={true}
+                  form={inputs[0].form}
                 />
                 <InputDate
                   element={inputs[0].groupInfo[0].elements[2]}
                   status={true}
+                  form={inputs[0].form}
                 />
                 <InputSelect
                   element={inputSelect[0].groupInfo[0].elements[0]}
                   status={true}
+                  form={inputs[0].form}
                 />
               </form>
             </div>

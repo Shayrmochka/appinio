@@ -1,11 +1,42 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import { UserDataContext } from '../../context/UserDataContext';
+import Input from '../elements/Input';
+import InputDate from '../elements/InputDate';
+import InputSelect from '../elements/InputDate';
 import './Table.css';
 
 function Table() {
+  const { userData, setUserData } = useContext(UserDataContext);
   const [rows, setRows] = useState([1]);
 
   const addRow = (event: any) => {
     event.preventDefault();
+    setUserData({
+      thirdStep: {
+        ...userData['thirdStep'],
+        [`${rows.length + 1}-country`]: {
+          // ...userData['thirdStep'][`${rows.length+1}-country`],
+          text: '',
+          error: false,
+        },
+        [`${rows.length + 1}-to`]: {
+          text: '',
+          error: false,
+        },
+        [`${rows.length + 1}-from`]: {
+          text: '',
+          error: false,
+        },
+        [`${rows.length + 1}-persons`]: {
+          text: '',
+          error: false,
+        },
+        [`${rows.length + 1}-address`]: {
+          text: '',
+          error: false,
+        },
+      },
+    });
     setRows([...rows, rows.length + 1]);
   };
 
@@ -37,23 +68,63 @@ function Table() {
             <>
               <tr>
                 <td rowSpan={2}>
-                  <input name={`${e}-country`} id={`${e}-country`} />
+                  <InputSelect
+                    element={{
+                      name: `${e}-country`,
+                      placeholder: '',
+                      type: 'select',
+                    }}
+                    status={true}
+                    form={'thirdStep'}
+                  />
                 </td>
                 <td>From</td>
                 <td>
-                  <input name={`${e}-from`} id={`${e}-from`} />
+                  <InputDate
+                    element={{
+                      name: `${e}-from`,
+                      placeholder: '',
+                      type: 'date',
+                    }}
+                    status={true}
+                    form={'thirdStep'}
+                  />
                 </td>
                 <td rowSpan={2}>
-                  <input name={`${e}-persons`} id={`${e}-persons`} />
+                  <Input
+                    element={{
+                      name: `${e}-persons`,
+                      placeholder: '',
+                      //type: 'input',
+                    }}
+                    status={true}
+                    form={'thirdStep'}
+                  />
                 </td>
                 <td rowSpan={2}>
-                  <input name={`${e}-address`} id={`${e}-address`} />
+                  <Input
+                    element={{
+                      name: `${e}-address`,
+                      placeholder: '',
+                      //type: 'input',
+                    }}
+                    status={true}
+                    form={'thirdStep'}
+                  />
                 </td>
               </tr>
               <tr>
                 <td>To</td>
                 <td>
-                  <input name={`${e}-to`} id={`${e}-to`} />
+                  <InputDate
+                    element={{
+                      name: `${e}-to`,
+                      placeholder: '',
+                      type: 'date',
+                    }}
+                    status={true}
+                    form={'thirdStep'}
+                  />
                 </td>
               </tr>
             </>

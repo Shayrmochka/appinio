@@ -6,9 +6,10 @@ import 'moment/locale/it.js';
 interface InputProps {
   element: any;
   status: any;
+  form: string;
 }
 
-const Input: React.FC<InputProps> = ({ element, status }) => {
+const Input: React.FC<InputProps> = ({ element, status, form }) => {
   const { userData, handleChange } = useContext(UserDataContext);
 
   return (
@@ -18,14 +19,17 @@ const Input: React.FC<InputProps> = ({ element, status }) => {
         className="inputs__item"
         name={element.name}
         disabled={!status}
-        value={userData[element.name]}
+        value={userData[form][element.name].text}
         id={element.name}
         type={element.type}
-        required
-        onChange={handleChange}
-        //defaultValue="qwe"
+        //required
+        onChange={(event) => handleChange(event, form)}
+        // defaultValue="qwe"
       />
       <label className="inputs__label">{element.placeholder}</label>
+      {userData[form][element.name].error && (
+        <p className="error-message">{element.placeholder} cannot be empty*</p>
+      )}
     </div>
   );
 };

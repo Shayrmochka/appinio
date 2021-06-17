@@ -17,7 +17,7 @@ const StepBar: React.FC<ProgressBarProps> = ({
       <ul className="progress-bar">
         {steps.map((e: any, i: number) => (
           <li
-            onClick={() => setActiveStep(i)}
+            onClick={() => e.complete && setActiveStep(i)}
             key={i}
             className={`progress-bar__step 
             ${e.complete && 'complete'}
@@ -33,7 +33,6 @@ const StepBar: React.FC<ProgressBarProps> = ({
             >
               {i + 1}
             </p>
-            {/* {e} */}
           </li>
         ))}
       </ul>

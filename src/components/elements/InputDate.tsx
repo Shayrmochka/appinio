@@ -5,9 +5,10 @@ import 'moment/locale/it.js';
 interface InputDateProps {
   element: any;
   status: any;
+  form: string;
 }
 
-const InputDate: React.FC<InputDateProps> = ({ element, status }) => {
+const InputDate: React.FC<InputDateProps> = ({ element, status, form }) => {
   const { userData, handleChange } = useContext(UserDataContext);
 
   return (
@@ -19,15 +20,18 @@ const InputDate: React.FC<InputDateProps> = ({ element, status }) => {
         min="1900-01-01"
         max="2021-01-01"
         //disabled={!status}
-        value={userData[element.name]}
+        value={userData[form][element.name].text}
         id={element.name}
         type={element.type}
-        required
-        onChange={handleChange}
+        //required
+        onChange={(event) => handleChange(event, form)}
       />
       <label className="inputs__label inputs--date-label">
         {element.placeholder}
       </label>
+      {userData[form][element.name].error && (
+        <p className="error-message">{element.placeholder} cannot be empty*</p>
+      )}
     </div>
   );
 };

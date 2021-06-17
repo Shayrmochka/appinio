@@ -14,6 +14,7 @@ const GroupWrapper: React.FC<GroupWrapperProps> = ({ data }) => {
           key={e.id}
           groupTitle={e.groupTitle}
           groupInfo={e.groupInfo}
+          form={e.form}
         />
       ))}
     </>

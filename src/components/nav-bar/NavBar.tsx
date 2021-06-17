@@ -7,21 +7,25 @@ const NavBar = () => {
       <header className="header">
         <div className="header__section--left section">
           <div className="section__logo--left">
-            <img className="section--logo" src="/images/logo-white.png" />
+            <img
+              className="section--logo"
+              src="/images/logo-white.png"
+              alt="section-logo"
+            />
           </div>
           <ul className="section__menu menu">
             <li className="menu__item">
-              <a className="menu__item--hover" href="#">
+              <a className="menu__item--hover" href="/">
                 Dashboard
               </a>
             </li>
             <li className="menu__item">
-              <a className="menu__item--hover" href="#">
+              <a className="menu__item--hover" href="/">
                 Umfragen
               </a>
             </li>
             <li className="menu__item">
-              <a className="menu__item--hover" href="#">
+              <a className="menu__item--hover" href="/">
                 Profiling
               </a>
             </li>
@@ -34,7 +38,7 @@ const NavBar = () => {
           <button className="section__button section__button--blue">
             Umfrage erstellen
           </button>
-          <a className="section__profile" href="#">
+          <a className="section__profile" href="/">
             JK
           </a>
         </div>

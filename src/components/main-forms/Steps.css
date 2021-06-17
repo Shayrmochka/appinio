@@ -115,11 +115,16 @@
 }
 
 .step-wrapper .group__checkboxes {
-  /* max-width: 560px; */
   display: flex;
   column-gap: 40px;
   flex-wrap: wrap;
+  position: relative;
 }
+
+/* .step-wrapper .group__checkboxes :last-child {
+  display: flex;
+  flex-direction: column;
+} */
 
 .step-wrapper .form__group--without-border {
   border: none;
@@ -178,7 +183,7 @@
 }
 
 .step-wrapper .form__group--hidden {
-  display: none;
+  /* display: none; */
 }
 
 .step-wrapper .checkboxes__title {
@@ -272,4 +277,9 @@
 .form ul li {
   margin-left: 20px;
   padding: 4px 0;
+}
+
+.error-message {
+  margin-top: 10px;
+  color: red;
 }

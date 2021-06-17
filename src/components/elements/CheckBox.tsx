@@ -3,29 +3,28 @@ import { UserDataContext } from '../../context/UserDataContext';
 
 interface CheckBoxProps {
   e: any;
-  //handleChange: (event: any) => void;
-  checked: any;
+  render: any;
+  form: string;
 }
 
-const CheckBox: React.FC<CheckBoxProps> = ({ e, checked }) => {
-  const { handleChange, handleClick } = useContext(UserDataContext);
+const CheckBox: React.FC<CheckBoxProps> = ({ e, form, render }) => {
+  const { handleClick, userData } = useContext(UserDataContext);
 
   return (
     <>
       <input
         key={e.id}
         className="checkboxes__item"
-        //type="checkbox"
-        type="radio"
+        type="checkbox"
         id={e.id}
-        //checked={checked}
         name={e.name}
         value={e.value}
+        checked={userData[form][e.name].text === e.value ? true : false}
         defaultChecked={false}
         // onChange={(e) => {
         //   handleChange(e);
         // }}
-        onClick={handleClick}
+        onClick={(event) => handleClick(event, form, render)}
       />
       <label className="checkboxes__label" htmlFor={e.id}>
         {e.label}

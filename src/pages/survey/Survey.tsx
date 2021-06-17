@@ -15,64 +15,268 @@ import './Survey.css';
 //   defaultCity: string;
 // }
 
-const steps = [
-  {
-    formId: 'firstStep',
-    stepNumber: 0,
-    stepTitle:
-      'Part A - Details of the primary visa holder or applicant (the primary person)',
-    complete: false,
-  },
-  {
-    formId: 'secondStep',
-    stepNumber: 1,
-    stepTitle: 'Part A - Details of person(s) included in this application',
-    complete: false,
-  },
-  {
-    formId: 'thirdStep',
-    stepNumber: 2,
-    stepTitle: 'Part A - Health',
-    complete: false,
-  },
-  {
-    formId: 'fourthStep',
-    stepNumber: 3,
-    stepTitle: 'Part A - Has any person included in this application, ever:',
-    complete: false,
-  },
-  {
-    formId: 'fifthStep',
-    stepNumber: 4,
-    stepTitle:
-      'Part B – Assistance with this form / Part C – Options for receiving written communications / Part D – Payment details',
-    complete: false,
-  },
-  {
-    formId: 'sixthStep',
-    stepNumber: 5,
-    stepTitle: 'Part E – Declaration and consent',
-    complete: false,
-  },
-];
+// const steps =
 
-interface UserData {
-  defaultCountry: string;
-  defaultRegion: string;
-}
+// '3-applied-visa':
+// '3-australian-visa-refused':
+// '3-authority':
+// '3-bridging-visa-e':
+// '3-bridging-visa-expiry':
+// '3-bridging-visa-issue':
+// '3-bridging-visa-place':
+// '3-card':
+// '3-card-country-issue':
+// '3-card-identify-number':
+// '3-citizenship':
+// '3-countryOfPassport':
+// '3-currently-located':
+// '3-date-of-application':
+// '3-dateOfBirth':
+// '3-expiry':
+// '3-family-name':
+// '3-gender':
+// '3-given-names':
+// '3-goverment-student':
+// '3-issue':
+// '3-location-of-application':
+// '3-other-family-name':
+// '3-other-given-names':
+// '3-other-names':
+// '3-passportNumber':
+// '3-relationship':
+// '3-relationship-status':
+// '3-stasus-in-country':
+// '3-supported-student':
+// '3-visa-applied-for':
+// '3-visa-or-application':
+//'3-place-of-birth':
+
+// ====
+
+// 5-visited: {text: "", error: false}
+// 6-hospital: {text: "", error: false}
+// 7-work: {text: "", error: false}
+// 8-work: {text: "", error: false}
+// 9-tuberculosis: {text: "", error: false}
+// 10-for: {text: "", error: false}
+// 11-assistance: {text: "", error: false}
+// 12-undertaken: {text: "", error: false}
+// 14-cumulative-period: {text: "", error: false}
+
+// ===
+
+// 15-acquitted: {text: "", error: false}
+// 15-charged: {text: "", error: false}
+// 15-convicted: {text: "", error: false}
+// 15-criminal-conduct: {text: "", error: false}
+// 15-deported: {text: "", error: false}
+// 15-genocide: {text: "", error: false}
+// 15-guilty-of-sex: {text: "", error: false}
+// 15-interpol: {text: "", error: false}
+// 15-legal: {text: "", error: false}
+// 15-military-force: {text: "", error: false}
+// 15-national-security: {text: "", error: false}
+// 15-not-plead: {text: "", error: false}
+// 15-order: {text: "", error: false}
+// 15-organisation-engaged: {text: "", error: false}
+// 15-outstanding-debts: {text: "", error: false}
+// 15-overstayed: {text: "", error: false}
+// 15-sex-offender: {text: "", error: false}
+// 15-smuggling: {text: "", error: false}
+// 15-training: {text: "", error: false}
+
+// '15-acquitted': {text: "", error: false},
+// '15-charged': {text: "", error: false},
+// '15-convicted': {text: "", error: false},
+// '15-criminal-conduct': {text: "", error: false},
+// '15-deported': {text: "", error: false},
+// '15-genocide': {text: "", error: false},
+// '15-guilty-of-sex': {text: "", error: false},
+// '15-interpol': {text: "", error: false},
+// '15-legal': {text: "", error: false},
+// '15-military-force': {text: "", error: false},
+// '15-national-security': {text: "", error: false},
+// '15-not-plead': {text: "", error: false},
+// '15-order': {text: "", error: false},
+// '15-organisation-engaged': {text: "", error: false},
+// '15-outstanding-debts': {text: "", error: false},
+// '15-overstayed': {text: "", error: false},
+// '15-sex-offender': {text: "", error: false},
+// '15-smuggling': {text: "", error: false},
+// '15-training': {text: "", error: false},
+
+// ====
+
+// '16-address': {text: "", error: false},
+// '16-assistance': {text: "", error: false},
+// '16-assisted-person': {text: "", error: false},
+// '16-family-name': {text: "", error: false},
+// '16-given-names': {text: "", error: false},
+// '16-mobile': {text: "", error: false},
+// '16-office-hours': {text: "", error: false},
+// '17-migration': {text: "", error: false},
+// '18-pay': {text: "", error: false},
+// '19-communications-sent': {text: "", error: false},
+// '20-payment-details': {text: "", error: false},
 
 const Survey = () => {
+  const [steps, setSteps] = useState([
+    {
+      formId: 'firstStep',
+      stepNumber: 0,
+      stepTitle:
+        'Part A - Details of the primary visa holder or applicant (the primary person)',
+      complete: false,
+    },
+    {
+      formId: 'secondStep',
+      stepNumber: 1,
+      stepTitle: 'Part A - Details of person(s) included in this application',
+      complete: false,
+    },
+    {
+      formId: 'thirdStep',
+      stepNumber: 2,
+      stepTitle: 'Part A - Health',
+      complete: false,
+    },
+    {
+      formId: 'fourthStep',
+      stepNumber: 3,
+      stepTitle: 'Part A - Has any person included in this application, ever:',
+      complete: false,
+    },
+    {
+      formId: 'fifthStep',
+      stepNumber: 4,
+      stepTitle:
+        'Part B – Assistance with this form / Part C – Options for receiving written communications / Part D – Payment details',
+      complete: false,
+    },
+    {
+      formId: 'sixthStep',
+      stepNumber: 5,
+      stepTitle: 'Part E – Declaration and consent',
+      complete: false,
+    },
+  ]);
   const [activeStep, setActiveStep] = useState(0);
   const [userData, setUserData] = useState<any>({
-    defaultCountry: '',
-    defaultRegion: '',
+    firstStep: {
+      '1-appID': { text: '', error: false },
+      '1-dateOfBirth': { text: '', error: false },
+      '1-family-name': { text: '', error: false },
+      '1-gender': { text: '', error: false },
+      '1-given-names': { text: '', error: false },
+      '1-grantNumber': { text: '', error: false },
+      '1-passport': { text: '', error: false },
+      '1-visaId': { text: '', error: false },
+      '1-visaTRN': { text: '', error: false },
+      '2-people': { text: '', error: false },
+    },
+    secondStep: {
+      '3-applied-visa': { text: '', error: false },
+      '3-australian-visa-refused': { text: '', error: false }, // --
+      '3-authority': { text: '', error: false },
+      '3-bridging-visa-e': { text: '', error: false },
+      //'3-bridging-visa-expiry': { text: '', error: false },  // =-
+      //'3-bridging-visa-issue': { text: '', error: false },  // =-
+      //'3-bridging-visa-place': { text: '', error: false },  // =-
+      '3-card': { text: '', error: false },
+      '3-card-country-issue': { text: '', error: false },
+      '3-card-identify-number': { text: '', error: false },
+      '3-citizenship': { text: '', error: false },
+      '3-countryOfPassport': { text: '', error: false },
+      '3-currently-located': { text: '', error: false },
+      //'3-date-of-application': { text: '', error: false },  // ====
+      '3-dateOfBirth': { text: '', error: false },
+      '3-expiry': { text: '', error: false },
+      '3-family-name': { text: '', error: false },
+      '3-gender': { text: '', error: false },
+      '3-given-names': { text: '', error: false },
+      '3-goverment-student': { text: '', error: false },
+      '3-issue': { text: '', error: false },
+      //'3-location-of-application': { text: '', error: false }, // ====
+      // '3-other-family-name': { text: '', error: false }, // ====
+      // '3-other-given-names': { text: '', error: false }, // ====
+      '3-other-names': { text: '', error: false },
+      '3-passportNumber': { text: '', error: false },
+      '3-relationship': { text: '', error: false },
+      '3-relationship-status': { text: '', error: false },
+      '3-stasus-in-country': { text: '', error: false },
+      '3-supported-student': { text: '', error: false },
+      //'3-visa-applied-for': { text: '', error: false }, // ====
+      '3-visa-or-application': { text: '', error: false },
+      '3-place-of-birth': { text: '', error: false },
+    },
+    thirdStep: {
+      '5-visited': { text: '', error: false },
+      '6-hospital': { text: '', error: false },
+      '7-work': { text: '', error: false },
+      '8-work': { text: '', error: false },
+      '9-tuberculosis': { text: '', error: false },
+      '10-for': { text: '', error: false },
+      '11-assistance': { text: '', error: false },
+      '12-undertaken': { text: '', error: false },
+      '14-cumulative-period': { text: '', error: false },
+      '5-date-from-first': { text: '', error: false },
+      '5-date-to-first': { text: '', error: false },
+      '1-from': { text: '2021-01-01', error: false },
+      '1-to': { text: '2021-01-01', error: false },
+      '1-country': { text: ' ', error: false },
+      '1-persons': { text: ' ', error: false },
+      '1-address': { text: ' ', error: false },
+    },
+    fourthStep: {
+      '15-acquitted': { text: '', error: false },
+      '15-charged': { text: '', error: false },
+      '15-convicted': { text: '', error: false },
+      '15-criminal-conduct': { text: '', error: false },
+      '15-deported': { text: '', error: false },
+      '15-genocide': { text: '', error: false },
+      '15-guilty-of-sex': { text: '', error: false },
+      '15-interpol': { text: '', error: false },
+      '15-legal': { text: '', error: false },
+      '15-military-force': { text: '', error: false },
+      '15-national-security': { text: '', error: false },
+      '15-not-plead': { text: '', error: false },
+      '15-order': { text: '', error: false },
+      '15-organisation-engaged': { text: '', error: false },
+      '15-outstanding-debts': { text: '', error: false },
+      '15-overstayed': { text: '', error: false },
+      '15-sex-offender': { text: '', error: false },
+      '15-smuggling': { text: '', error: false },
+      '15-training': { text: '', error: false },
+    },
+    fifthStep: {
+      '16-address': { text: '', error: false },
+      '16-assistance': { text: '', error: false },
+      '16-assisted-person': { text: '', error: false },
+      '16-family-name': { text: '', error: false },
+      '16-given-names': { text: '', error: false },
+      '16-mobile': { text: '', error: false },
+      '16-office-hours': { text: '', error: false },
+      '17-migration': { text: '', error: false },
+      '18-pay': { text: '', error: false },
+      '19-communications-sent': { text: '', error: false },
+      '20-payment-details': { text: '', error: false },
+    },
+    sixthStep: {
+      '21-primary-signature': { text: '', error: false },
+      '21-secondary-signature-1': { text: '', error: false },
+    },
   });
-  const handleChange = (event: any) => {
-    const { name, value } = event.target;
-
+  const handleChange = (event: any, form: string) => {
     setUserData({
       ...userData,
-      [event.target.name]: event.target.value,
+      [form]: {
+        ...userData[form],
+        [event.target.name]: {
+          ...userData[form][event.target.name],
+          text: event.target.value,
+          error: false,
+        },
+      },
     });
   };
 
@@ -83,19 +287,16 @@ const Survey = () => {
     });
   };
 
-  const handleSelectRegion = (val: any, elementName: any) => {
-    setUserData({
-      ...userData,
-      [elementName]: {
-        region: val,
-      },
-    });
-  };
+  // const handleSelectRegion = (val: any, elementName: any) => {
+  //   setUserData({
+  //     ...userData,
+  //     [elementName]: {
+  //       region: val,
+  //     },
+  //   });
+  // };
 
   var parseBool = function (str: any) {
-    // console.log(typeof str);
-    // strict: JSON.parse(str)
-
     if (str == null) return false;
 
     if (typeof str === 'boolean') {
@@ -103,33 +304,111 @@ const Survey = () => {
     }
 
     if (typeof str === 'string') {
-      if (str == '') return false;
+      if (str === '') return false;
 
       str = str.replace(/^\s+|\s+$/g, '');
-      if (str.toLowerCase() == 'true' || str.toLowerCase() == 'yes')
+      if (str.toLowerCase() === 'true' || str.toLowerCase() === 'yes')
         return true;
 
       str = str.replace(/,/g, '.');
-      str = str.replace(/^\s*\-\s*/g, '-');
+      str = str.replace(/^\s*\s*/g, '-');
     }
 
-    // var isNum = string.match(/^[0-9]+$/) != null;
-    // var isNum = /^\d+$/.test(str);
-    if (!isNaN(str)) return parseFloat(str) != 0;
+    if (!isNaN(str)) return parseFloat(str) !== 0;
 
     return false;
   };
 
-  const handleClick = (event: any) => {
-    if (event.target.value === 'true' || event.target.value === 'false') {
+  // const getData = async () => {
+  //   await fetch(
+  //     'http://geohelper.info/api/v1/cities?apiKey=rTIXzrnUuzWrZFfC3RRRmsJGhI30hXg8&locale[lang]=en'
+  //   )
+  //     .then((response) => response.json())
+  //     .then((data) => console.log(data));
+  // };
+
+  // useEffect(() => {
+  //   getData();
+  // }, []);
+
+  const handleClick = (event: any, form: string, render: any) => {
+    if (userData[form][event.target.name].text === event.target.value) {
       setUserData({
         ...userData,
-        [event.target.name]: parseBool(event.target.value),
+        [form]: {
+          ...userData[form],
+          [event.target.name]: {
+            ...userData[form][event.target.name],
+            text: '',
+            error: false,
+          },
+        },
       });
+    } else if (
+      event.target.value === 'true' ||
+      event.target.value === 'false'
+    ) {
+      if (render && event.target.value === 'true') {
+        const newTree = userData;
+        render.map(
+          (e: any) =>
+            (newTree[form][e] = {
+              text: '',
+              error: '',
+            })
+        );
+        setUserData({
+          ...newTree,
+          [form]: {
+            ...userData[form],
+            [event.target.name]: {
+              ...userData[form][event.target.name],
+              text: parseBool(event.target.value),
+
+              error: false,
+            },
+          },
+        });
+      } else if (render && event.target.value === 'false') {
+        const newTree = userData;
+        render.map((e: any) => delete newTree[form][e]);
+        setUserData({
+          ...newTree,
+          [form]: {
+            ...userData[form],
+            [event.target.name]: {
+              ...userData[form][event.target.name],
+              text: parseBool(event.target.value),
+
+              error: false,
+            },
+          },
+        });
+      } else {
+        setUserData({
+          ...userData,
+          [form]: {
+            ...userData[form],
+            [event.target.name]: {
+              ...userData[form][event.target.name],
+              text: parseBool(event.target.value),
+
+              error: false,
+            },
+          },
+        });
+      }
     } else {
       setUserData({
         ...userData,
-        [event.target.name]: event.target.value,
+        [form]: {
+          ...userData[form],
+          [event.target.name]: {
+            ...userData[form][event.target.name],
+            text: event.target.value,
+            error: false,
+          },
+        },
       });
     }
   };
@@ -168,11 +447,33 @@ const Survey = () => {
 
   const handleSubmit = (event: any) => {
     event.preventDefault();
-    console.log('qwe');
-    if (activeStep === steps.length) {
-      return;
+    const formId = event.target.id;
+    let err = false;
+    const newUserData = userData[formId];
+    for (let prop in userData[formId]) {
+      if (
+        !userData[formId][prop].text &&
+        typeof userData[formId][prop].text === 'string'
+      ) {
+        newUserData[prop].error = true;
+        err = true;
+      }
     }
-    setActiveStep(activeStep + 1);
+
+    setUserData({
+      ...userData,
+      [formId]: newUserData,
+    });
+
+    if (!err) {
+      const newSteps = [...steps];
+      newSteps[activeStep].complete = true;
+      setSteps(newSteps);
+      if (activeStep === steps.length) {
+        return;
+      }
+      setActiveStep(activeStep + 1);
+    }
   };
 
   const getStepContent = (step: number) => {

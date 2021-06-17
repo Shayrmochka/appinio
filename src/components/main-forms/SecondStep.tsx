@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
 import GroupWrapper from '../elements/GroupWrapper';
 import ScrollToTopOnMount from '../../utilites/ScrollToTopOnMount';
 
 import { dataSecond as data } from '../../data';
 import './Steps.css';
+import { Link } from 'react-router-dom';
 
 interface SecondStepProps {
   handleSubmit: (event: any) => void;
@@ -32,7 +32,18 @@ const SecondStep = ({ handleSubmit }: SecondStepProps) => {
           of legal responsibility for that child, such as court orders, child
           custody documents and/or form 1229 Consent to grant an Australian visa
           to a child under the age of 18 years. Form 1229 is available from the
-          Department’s website <strong>www.homeaffairs.gov.au/allforms/</strong>
+          Department’s website{' '}
+          <strong>
+            <Link
+              to={{
+                pathname:
+                  'https://immi.homeaffairs.gov.au/help-support/departmental-forms',
+              }}
+              target="_blank"
+            >
+              www.homeaffairs.gov.au/allforms/
+            </Link>
+          </strong>
         </p>
       </form>
     </div>

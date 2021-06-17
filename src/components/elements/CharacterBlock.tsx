@@ -1,36 +1,14 @@
+import { useContext } from 'react';
+import { UserDataContext } from '../../context/UserDataContext';
 import Table from '../table/Table';
 import GroupWrapper from './GroupWrapper';
 
-function CharacterBlock() {
-  const data = [
-    {
-      id: '14000',
-      groupTitle: '',
-      groupInfo: [
-        {
-          id: '14001',
-          blockTitle:
-            '14. In the last 10 years, has any person included in this application, visited, or lived, outside their usual country of residence for a cumulative period of 12 months or more, since turning 16 years of age?',
-          elementsType: 'checkbox',
-          elements: [
-            {
-              id: '14-cumulative-period-no',
-              name: '14-cumulative-period-no',
-              value: false,
-              label: 'No',
-            },
-            {
-              id: '14-cumulative-period-yes',
-              name: '14-cumulative-period-yes',
-              value: true,
-              label: 'Yes',
-            },
-          ],
-        },
-      ],
-    },
-  ];
+interface CharacterBlockProps {
+  characterBlock: any;
+}
 
+function CharacterBlock({ characterBlock }: CharacterBlockProps) {
+  const { userData } = useContext(UserDataContext);
   return (
     <div>
       <p className="group-block__title">Character</p>
@@ -55,8 +33,8 @@ function CharacterBlock() {
         information to the Department.
       </p>
 
-      <GroupWrapper data={data} />
-      <Table />
+      <GroupWrapper data={characterBlock} />
+      {userData['thirdStep']['14-cumulative-period'].text && <Table />}
     </div>
   );
 }
