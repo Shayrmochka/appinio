@@ -20,11 +20,7 @@ const CheckBox: React.FC<CheckBoxProps> = ({ e, form, render }) => {
         name={e.name}
         value={e.value}
         checked={userData[form][e.name].text === e.value ? true : false}
-        defaultChecked={false}
-        // onChange={(e) => {
-        //   handleChange(e);
-        // }}
-        onClick={(event) => handleClick(event, form, render)}
+        onChange={(event) => handleClick(event, form, render)}
       />
       <label className="checkboxes__label" htmlFor={e.id}>
         {e.label}
