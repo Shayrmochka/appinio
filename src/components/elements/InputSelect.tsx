@@ -59,8 +59,13 @@ const InputSelect: React.FC<InputSelectProps> = ({ element, status, form }) => {
         <p className="error-message">{element.placeholder} cannot be empty*</p>
       )}
       <datalist id="countries">
+        <option value="Argentina" />
+        <option value="Brazil" />
         <option value="USA" />
         <option value="Canada" />
+        <option value="France" />
+        <option value="Spain" />
+        <option value="Italy" />
       </datalist>
       {/* <datalist id="cities">
         <option value="Naples" />

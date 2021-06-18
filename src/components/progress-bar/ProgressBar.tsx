@@ -18,7 +18,7 @@ const StepBar: React.FC<ProgressBarProps> = ({
       <ul className="progress-bar">
         {steps.map((e: IStep, i: number) => (
           <li
-            onClick={() => e.complete && setActiveStep(i)}
+            onClick={() => e.complete || setActiveStep(i)}
             key={i}
             className={`progress-bar__step 
             ${e.complete && 'complete'}

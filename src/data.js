@@ -301,14 +301,17 @@ export const dataSecond = [
           },
           {
             name: '3-countryOfPassport',
+            type: 'select',
             placeholder: 'Country of passport',
           },
           {
             name: '3-issue',
+            type: 'date',
             placeholder: 'Date of issue',
           },
           {
             name: '3-expiry',
+            type: 'date',
             placeholder: 'Date of expiry',
           },
           {
@@ -491,6 +494,7 @@ export const dataSecond = [
         elements: [
           {
             name: '3-date-of-application',
+            type: 'date',
             placeholder: 'Date of application',
           },
           {
@@ -571,10 +575,12 @@ export const dataSecond = [
           },
           {
             name: '3-bridging-visa-issue',
+            type: 'date',
             placeholder: 'Date of issue',
           },
           {
             name: '3-bridging-visa-expiry',
+            type: 'date',
             placeholder: 'Date of expiry',
           },
         ],
