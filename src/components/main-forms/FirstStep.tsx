@@ -13,7 +13,7 @@ const FirstStep = ({ handleSubmit }: FirstStepProps) => {
   return (
     <div className="step-wrapper">
       <ScrollToTopOnMount />
-      <form className="form" id="firstStep" onSubmit={handleSubmit}>
+      <form className="form" id="firstStep" onSubmit={handleSubmit} noValidate>
         <GroupWrapper data={data} />
       </form>
     </div>

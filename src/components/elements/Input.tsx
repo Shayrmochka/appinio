@@ -22,13 +22,14 @@ const Input: React.FC<InputProps> = ({ element, status, form }) => {
         value={userData[form][element.name].text}
         id={element.name}
         type={element.type}
-        //required
+        required
         onChange={(event) => handleChange(event, form)}
-        // defaultValue="qwe"
       />
       <label className="inputs__label">{element.placeholder}</label>
       {userData[form][element.name].error && (
-        <p className="error-message">{element.placeholder} cannot be empty*</p>
+        <p className="error-message">
+          {element.placeholder} {userData[form][element.name].errorMessage}*
+        </p>
       )}
     </div>
   );

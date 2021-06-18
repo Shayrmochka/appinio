@@ -8,6 +8,8 @@ import FourthStep from '../../components/main-forms/FourthStep';
 import FifthStep from '../../components/main-forms/FifthStep';
 import SixthStep from '../../components/main-forms/SixthStep';
 import AdditionalInfo from '../../components/additional-forms/AdditionalInfo';
+import { parseBool } from '../../utilites/parseBool';
+import { InputEvent } from '../../interfaces/interfaces';
 import './Survey.css';
 
 // interface userData {
@@ -163,64 +165,64 @@ const Survey = () => {
   const [activeStep, setActiveStep] = useState(0);
   const [userData, setUserData] = useState<any>({
     firstStep: {
-      '1-appID': { text: '', error: false },
-      '1-dateOfBirth': { text: '', error: false },
-      '1-family-name': { text: '', error: false },
-      '1-gender': { text: '', error: false },
-      '1-given-names': { text: '', error: false },
-      '1-grantNumber': { text: '', error: false },
-      '1-passport': { text: '', error: false },
-      '1-visaId': { text: '', error: false },
-      '1-visaTRN': { text: '', error: false },
-      '2-people': { text: '', error: false },
+      '1-appID': { text: '', error: false, errorMessage: '' },
+      '1-dateOfBirth': { text: '', error: false, errorMessage: '' },
+      '1-family-name': { text: '', error: false, errorMessage: '' },
+      '1-gender': { text: '', error: false, errorMessage: '' },
+      '1-given-names': { text: '', error: false, errorMessage: '' },
+      '1-grantNumber': { text: '', error: false, errorMessage: '' },
+      '1-passport': { text: '', error: false, errorMessage: '' },
+      '1-visaId': { text: '', error: false, errorMessage: '' },
+      '1-visaTRN': { text: '', error: false, errorMessage: '' },
+      '2-people': { text: '', error: false, errorMessage: '' },
     },
     secondStep: {
-      '3-applied-visa': { text: '', error: false },
-      '3-australian-visa-refused': { text: '', error: false }, // --
-      '3-authority': { text: '', error: false },
-      '3-bridging-visa-e': { text: '', error: false },
-      //'3-bridging-visa-expiry': { text: '', error: false },  // =-
-      //'3-bridging-visa-issue': { text: '', error: false },  // =-
-      //'3-bridging-visa-place': { text: '', error: false },  // =-
-      '3-card': { text: '', error: false },
-      '3-card-country-issue': { text: '', error: false },
-      '3-card-identify-number': { text: '', error: false },
-      '3-citizenship': { text: '', error: false },
-      '3-countryOfPassport': { text: '', error: false },
-      '3-currently-located': { text: '', error: false },
-      //'3-date-of-application': { text: '', error: false },  // ====
-      '3-dateOfBirth': { text: '', error: false },
-      '3-expiry': { text: '', error: false },
-      '3-family-name': { text: '', error: false },
-      '3-gender': { text: '', error: false },
-      '3-given-names': { text: '', error: false },
-      '3-goverment-student': { text: '', error: false },
-      '3-issue': { text: '', error: false },
-      //'3-location-of-application': { text: '', error: false }, // ====
-      // '3-other-family-name': { text: '', error: false }, // ====
-      // '3-other-given-names': { text: '', error: false }, // ====
-      '3-other-names': { text: '', error: false },
-      '3-passportNumber': { text: '', error: false },
-      '3-relationship': { text: '', error: false },
-      '3-relationship-status': { text: '', error: false },
-      '3-stasus-in-country': { text: '', error: false },
-      '3-supported-student': { text: '', error: false },
-      //'3-visa-applied-for': { text: '', error: false }, // ====
-      '3-visa-or-application': { text: '', error: false },
-      '3-place-of-birth': { text: '', error: false },
+      '3-applied-visa': { text: '', error: false, errorMessage: '' },
+      '3-australian-visa-refused': { text: '', error: false, errorMessage: '' }, // --
+      '3-authority': { text: '', error: false, errorMessage: '' },
+      '3-bridging-visa-e': { text: '', error: false, errorMessage: '' },
+      //'3-bridging-visa-expiry': { text: '', error: false, errorMessage: '' },  // =-
+      //'3-bridging-visa-issue': { text: '', error: false, errorMessage: '' },  // =-
+      //'3-bridging-visa-place': { text: '', error: false, errorMessage: '' },  // =-
+      '3-card': { text: '', error: false, errorMessage: '' },
+      '3-card-country-issue': { text: '', error: false, errorMessage: '' },
+      '3-card-identify-number': { text: '', error: false, errorMessage: '' },
+      '3-citizenship': { text: '', error: false, errorMessage: '' },
+      '3-countryOfPassport': { text: '', error: false, errorMessage: '' },
+      '3-currently-located': { text: '', error: false, errorMessage: '' },
+      //'3-date-of-application': { text: '', error: false, errorMessage: '' },  // ====
+      '3-dateOfBirth': { text: '', error: false, errorMessage: '' },
+      '3-expiry': { text: '', error: false, errorMessage: '' },
+      '3-family-name': { text: '', error: false, errorMessage: '' },
+      '3-gender': { text: '', error: false, errorMessage: '' },
+      '3-given-names': { text: '', error: false, errorMessage: '' },
+      '3-goverment-student': { text: '', error: false, errorMessage: '' },
+      '3-issue': { text: '', error: false, errorMessage: '' },
+      //'3-location-of-application': { text: '', error: false, errorMessage: '' }, // ====
+      // '3-other-family-name': { text: '', error: false, errorMessage: '' }, // ====
+      // '3-other-given-names': { text: '', error: false, errorMessage: '' }, // ====
+      '3-other-names': { text: '', error: false, errorMessage: '' },
+      '3-passportNumber': { text: '', error: false, errorMessage: '' },
+      '3-relationship': { text: '', error: false, errorMessage: '' },
+      '3-relationship-status': { text: '', error: false, errorMessage: '' },
+      '3-stasus-in-country': { text: '', error: false, errorMessage: '' },
+      '3-supported-student': { text: '', error: false, errorMessage: '' },
+      //'3-visa-applied-for': { text: '', error: false, errorMessage: '' }, // ====
+      '3-visa-or-application': { text: '', error: false, errorMessage: '' },
+      '3-place-of-birth': { text: '', error: false, errorMessage: '' },
     },
     thirdStep: {
-      '5-visited': { text: '', error: false },
-      '6-hospital': { text: '', error: false },
-      '7-work': { text: '', error: false },
-      '8-work': { text: '', error: false },
-      '9-tuberculosis': { text: '', error: false },
-      '10-for': { text: '', error: false },
-      '11-assistance': { text: '', error: false },
-      '12-undertaken': { text: '', error: false },
-      '14-cumulative-period': { text: '', error: false },
-      '5-date-from-first': { text: '', error: false },
-      '5-date-to-first': { text: '', error: false },
+      '5-visited': { text: '', error: false, errorMessage: '' },
+      '6-hospital': { text: '', error: false, errorMessage: '' },
+      '7-work': { text: '', error: false, errorMessage: '' },
+      '8-work': { text: '', error: false, errorMessage: '' },
+      '9-tuberculosis': { text: '', error: false, errorMessage: '' },
+      '10-for': { text: '', error: false, errorMessage: '' },
+      '11-assistance': { text: '', error: false, errorMessage: '' },
+      '12-undertaken': { text: '', error: false, errorMessage: '' },
+      '14-cumulative-period': { text: '', error: false, errorMessage: '' },
+      '5-date-from-first': { text: '', error: false, errorMessage: '' },
+      '5-date-to-first': { text: '', error: false, errorMessage: '' },
       '1-from': { text: '2021-01-01', error: false },
       '1-to': { text: '2021-01-01', error: false },
       '1-country': { text: ' ', error: false },
@@ -228,45 +230,64 @@ const Survey = () => {
       '1-address': { text: ' ', error: false },
     },
     fourthStep: {
-      '15-acquitted': { text: '', error: false },
-      '15-charged': { text: '', error: false },
-      '15-convicted': { text: '', error: false },
-      '15-criminal-conduct': { text: '', error: false },
-      '15-deported': { text: '', error: false },
-      '15-genocide': { text: '', error: false },
-      '15-guilty-of-sex': { text: '', error: false },
-      '15-interpol': { text: '', error: false },
-      '15-legal': { text: '', error: false },
-      '15-military-force': { text: '', error: false },
-      '15-national-security': { text: '', error: false },
-      '15-not-plead': { text: '', error: false },
-      '15-order': { text: '', error: false },
-      '15-organisation-engaged': { text: '', error: false },
-      '15-outstanding-debts': { text: '', error: false },
-      '15-overstayed': { text: '', error: false },
-      '15-sex-offender': { text: '', error: false },
-      '15-smuggling': { text: '', error: false },
-      '15-training': { text: '', error: false },
+      '15-acquitted': { text: '', error: false, errorMessage: '' },
+      '15-charged': { text: '', error: false, errorMessage: '' },
+      '15-convicted': { text: '', error: false, errorMessage: '' },
+      '15-criminal-conduct': { text: '', error: false, errorMessage: '' },
+      '15-deported': { text: '', error: false, errorMessage: '' },
+      '15-genocide': { text: '', error: false, errorMessage: '' },
+      '15-guilty-of-sex': { text: '', error: false, errorMessage: '' },
+      '15-interpol': { text: '', error: false, errorMessage: '' },
+      '15-legal': { text: '', error: false, errorMessage: '' },
+      '15-military-force': { text: '', error: false, errorMessage: '' },
+      '15-national-security': { text: '', error: false, errorMessage: '' },
+      '15-not-plead': { text: '', error: false, errorMessage: '' },
+      '15-order': { text: '', error: false, errorMessage: '' },
+      '15-organisation-engaged': { text: '', error: false, errorMessage: '' },
+      '15-outstanding-debts': { text: '', error: false, errorMessage: '' },
+      '15-overstayed': { text: '', error: false, errorMessage: '' },
+      '15-sex-offender': { text: '', error: false, errorMessage: '' },
+      '15-smuggling': { text: '', error: false, errorMessage: '' },
+      '15-training': { text: '', error: false, errorMessage: '' },
     },
     fifthStep: {
-      '16-address': { text: '', error: false },
-      '16-assistance': { text: '', error: false },
-      '16-assisted-person': { text: '', error: false },
-      '16-family-name': { text: '', error: false },
-      '16-given-names': { text: '', error: false },
-      '16-mobile': { text: '', error: false },
-      '16-office-hours': { text: '', error: false },
-      '17-migration': { text: '', error: false },
-      '18-pay': { text: '', error: false },
-      '19-communications-sent': { text: '', error: false },
-      '20-payment-details': { text: '', error: false },
+      '16-address': { text: '', error: false, errorMessage: '' },
+      '16-assistance': { text: '', error: false, errorMessage: '' },
+      '16-assisted-person': { text: '', error: false, errorMessage: '' },
+      '16-family-name': { text: '', error: false, errorMessage: '' },
+      '16-given-names': { text: '', error: false, errorMessage: '' },
+      '16-mobile': { text: '', error: false, errorMessage: '' },
+      '16-office-hours': { text: '', error: false, errorMessage: '' },
+      '17-migration': { text: '', error: false, errorMessage: '' },
+      '18-pay': { text: '', error: false, errorMessage: '' },
+      '19-communications-sent': { text: '', error: false, errorMessage: '' },
+      '20-payment-details': { text: '', error: false, errorMessage: '' },
     },
     sixthStep: {
-      '21-primary-signature': { text: '', error: false },
-      '21-secondary-signature-1': { text: '', error: false },
+      '21-primary-signature': { text: '', error: false, errorMessage: '' },
+      '21-secondary-signature-1': { text: '', error: false, errorMessage: '' },
     },
   });
-  const handleChange = (event: any, form: string) => {
+  const handleChange = (event: InputEvent, form: string) => {
+    if (
+      event.target.type === 'text' &&
+      !event.target.value.match(/^[a-zA-Z_ ]*$/)
+    ) {
+      setUserData({
+        ...userData,
+        [form]: {
+          ...userData[form],
+          [event.target.name]: {
+            ...userData[form][event.target.name],
+            text: event.target.value,
+            error: true,
+            errorMessage: 'cannot contain numbers and symbols',
+          },
+        },
+      });
+
+      return;
+    }
     setUserData({
       ...userData,
       [form]: {
@@ -280,7 +301,7 @@ const Survey = () => {
     });
   };
 
-  const handleChangeSelect = (val: any, elementName: any) => {
+  const handleChangeSelect = (val: string, elementName: string) => {
     setUserData({
       ...userData,
       [elementName]: val,
@@ -296,29 +317,6 @@ const Survey = () => {
   //   });
   // };
 
-  var parseBool = function (str: any) {
-    if (str == null) return false;
-
-    if (typeof str === 'boolean') {
-      return str === true;
-    }
-
-    if (typeof str === 'string') {
-      if (str === '') return false;
-
-      str = str.replace(/^\s+|\s+$/g, '');
-      if (str.toLowerCase() === 'true' || str.toLowerCase() === 'yes')
-        return true;
-
-      str = str.replace(/,/g, '.');
-      str = str.replace(/^\s*\s*/g, '-');
-    }
-
-    if (!isNaN(str)) return parseFloat(str) !== 0;
-
-    return false;
-  };
-
   // const getData = async () => {
   //   await fetch(
   //     'http://geohelper.info/api/v1/cities?apiKey=rTIXzrnUuzWrZFfC3RRRmsJGhI30hXg8&locale[lang]=en'
@@ -331,7 +329,7 @@ const Survey = () => {
   //   getData();
   // }, []);
 
-  const handleClick = (event: any, form: string, render: any) => {
+  const handleClick = (event: InputEvent, form: string, render: string[]) => {
     if (userData[form][event.target.name].text === event.target.value) {
       setUserData({
         ...userData,
@@ -351,7 +349,7 @@ const Survey = () => {
       if (render && event.target.value === 'true') {
         const newTree = userData;
         render.map(
-          (e: any) =>
+          (e: string) =>
             (newTree[form][e] = {
               text: '',
               error: '',
@@ -371,7 +369,7 @@ const Survey = () => {
         });
       } else if (render && event.target.value === 'false') {
         const newTree = userData;
-        render.map((e: any) => delete newTree[form][e]);
+        render.map((e: string) => delete newTree[form][e]);
         setUserData({
           ...newTree,
           [form]: {
@@ -445,7 +443,7 @@ const Survey = () => {
     console.log('send');
   };
 
-  const handleSubmit = (event: any) => {
+  const handleSubmit = (event: InputEvent) => {
     event.preventDefault();
     const formId = event.target.id;
     let err = false;
@@ -456,6 +454,7 @@ const Survey = () => {
         typeof userData[formId][prop].text === 'string'
       ) {
         newUserData[prop].error = true;
+        newUserData[prop].errorMessage = 'cannot be empty';
         err = true;
       }
     }

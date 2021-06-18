@@ -4,7 +4,7 @@ import CheckBoxesBlock from './CheckBoxesBlock';
 import { UserDataContext } from '../../context/UserDataContext';
 
 interface GroupBlockProps {
-  groupTitle: any;
+  groupTitle: string;
   groupInfo: any;
   form: string;
 }
@@ -32,7 +32,6 @@ const GroupBlock: React.FC<GroupBlockProps> = ({
               blockTitle={e.blockTitle}
               elements={e.elements}
               style={e.style}
-              renderFor={e.renderFor}
               link={e.link}
               addMore={e.addMore}
               form={form}

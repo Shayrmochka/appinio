@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { ButtonEvent } from '../../interfaces/interfaces';
 import ScrollToTopOnMount from '../../utilites/ScrollToTopOnMount';
 import Signature from '../elements/Signature';
 import './Steps.css';
@@ -10,12 +11,12 @@ interface SixthStepProps {
 const SixthStep = ({ handleSubmit }: SixthStepProps) => {
   const [signatyres, setSignatyres] = useState([1]);
 
-  const addSignatyres = (event: any) => {
+  const addSignatyres = (event: ButtonEvent) => {
     event.preventDefault();
     setSignatyres([...signatyres, signatyres.length + 1]);
   };
 
-  const deleteSignatyres = (event: any) => {
+  const deleteSignatyres = (event: ButtonEvent) => {
     event.preventDefault();
     const deleted = signatyres.filter((e) => e !== signatyres.length);
     setSignatyres(deleted);
@@ -24,7 +25,7 @@ const SixthStep = ({ handleSubmit }: SixthStepProps) => {
   return (
     <div className="step-wrapper">
       <ScrollToTopOnMount />
-      <form className="form " id="sixthStep" onSubmit={handleSubmit}>
+      <form className="form " id="sixthStep" onSubmit={handleSubmit} noValidate>
         <div className="form__group--padding group">
           <p className="group-block__title">
             {' '}

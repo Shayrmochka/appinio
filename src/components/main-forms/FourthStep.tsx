@@ -11,7 +11,7 @@ function FourthStep({ handleSubmit }: FourthStepProps) {
   return (
     <div className="step-wrapper">
       <ScrollToTopOnMount />
-      <form className="form" id="fourthStep" onSubmit={handleSubmit}>
+      <form className="form" id="fourthStep" onSubmit={handleSubmit} noValidate>
         <GroupWrapper data={data} />
       </form>
     </div>

@@ -6,10 +6,9 @@ import InputDate from './InputDate';
 import InputSelect from './InputSelect';
 
 interface InputsBlockProps {
-  blockTitle: any;
+  blockTitle: string;
   elements: any;
-  style: any;
-  renderFor: any;
+  style: string;
   link: any;
   addMore: boolean;
   form: string;
@@ -19,7 +18,6 @@ const InputsBlock: React.FC<InputsBlockProps> = ({
   blockTitle,
   elements,
   style,
-  renderFor,
   link,
   addMore,
   form,
@@ -94,11 +92,7 @@ const InputsBlock: React.FC<InputsBlockProps> = ({
     );
   };
   return (
-    <div
-      className={`form__group ${style} ${
-        renderFor && !userData[form][renderFor] && 'form__group--hidden'
-      } group`}
-    >
+    <div className={`form__group ${style} group`}>
       <p className="group__title">
         {blockTitle}{' '}
         {link && (

@@ -1,10 +1,11 @@
 import React from 'react';
+import { IStep } from '../../interfaces/interfaces';
 import './ProgressBar.css';
 
 interface ProgressBarProps {
-  steps: any;
+  steps: IStep[];
   activeStep: number;
-  setActiveStep: any;
+  setActiveStep: React.Dispatch<React.SetStateAction<number>>;
 }
 
 const StepBar: React.FC<ProgressBarProps> = ({
@@ -15,7 +16,7 @@ const StepBar: React.FC<ProgressBarProps> = ({
   return (
     <div className="progress-container">
       <ul className="progress-bar">
-        {steps.map((e: any, i: number) => (
+        {steps.map((e: IStep, i: number) => (
           <li
             onClick={() => e.complete && setActiveStep(i)}
             key={i}

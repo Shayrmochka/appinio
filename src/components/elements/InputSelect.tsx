@@ -3,7 +3,7 @@ import { UserDataContext } from '../../context/UserDataContext';
 
 interface InputSelectProps {
   element: any;
-  status: any;
+  status: boolean;
   form: string;
 }
 
@@ -42,19 +42,6 @@ const InputSelect: React.FC<InputSelectProps> = ({ element, status, form }) => {
   // ];
 
   return (
-    // <div className="inputs__wrapper inputs__wrapper--short">
-    //   <CountryDropdown
-    //     classes="inputs__item inputs__item--short"
-    //     value={userData[element.country]}
-    //     onChange={(val) => handleChangeSelect(val, element.country)}
-    //   />
-    //   <RegionDropdown
-    //     classes="inputs__item inputs__item--short"
-    //     country={userData[element.country]}
-    //     value={userData[element.region]}
-    //     onChange={(val) => handleChangeSelect(val, element.region)}
-    //   />
-    // </div>
     <div className="inputs__wrapper">
       <input
         key={element.name}

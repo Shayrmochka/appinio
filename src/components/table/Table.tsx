@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { UserDataContext } from '../../context/UserDataContext';
+import { ButtonEvent } from '../../interfaces/interfaces';
 import Input from '../elements/Input';
 import InputDate from '../elements/InputDate';
 import InputSelect from '../elements/InputDate';
@@ -9,7 +10,7 @@ function Table() {
   const { userData, setUserData } = useContext(UserDataContext);
   const [rows, setRows] = useState([1]);
 
-  const addRow = (event: any) => {
+  const addRow = (event: ButtonEvent) => {
     event.preventDefault();
     setUserData({
       thirdStep: {
@@ -40,7 +41,7 @@ function Table() {
     setRows([...rows, rows.length + 1]);
   };
 
-  const deleteRow = (event: any) => {
+  const deleteRow = (event: React.MouseEvent<HTMLElement>) => {
     event.preventDefault();
     const deleted = rows.filter((e) => e !== rows.length);
     setRows(deleted);

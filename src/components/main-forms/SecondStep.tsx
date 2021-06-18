@@ -13,7 +13,7 @@ const SecondStep = ({ handleSubmit }: SecondStepProps) => {
   return (
     <div className="step-wrapper">
       <ScrollToTopOnMount />
-      <form className="form" id="secondStep" onSubmit={handleSubmit}>
+      <form className="form" id="secondStep" onSubmit={handleSubmit} noValidate>
         <GroupWrapper data={data} />
         <p className="group__title--compact">
           4. For each person included in the application, provide evidence of

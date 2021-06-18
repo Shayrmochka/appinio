@@ -62,9 +62,6 @@
   box-shadow: none;
 }
 
-.step-wrapper .inputs--date {
-}
-
 .step-wrapper .inputs__wrapper--short {
   display: flex;
   justify-content: space-between;
@@ -282,4 +279,8 @@
 .error-message {
   margin-top: 10px;
   color: red;
+}
+
+.step-wrapper .inputs__wrapper .inputs--date {
+  border: 1px solid hsl(208deg 20% 87%);
 }

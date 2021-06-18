@@ -13,7 +13,7 @@ const FifthStep = ({ handleSubmit }: FifthStepProps) => {
   return (
     <div className="step-wrapper">
       <ScrollToTopOnMount />
-      <form className="form" id="fifthStep" onSubmit={handleSubmit}>
+      <form className="form" id="fifthStep" onSubmit={handleSubmit} noValidate>
         <GroupWrapper data={data} />
       </form>
     </div>
