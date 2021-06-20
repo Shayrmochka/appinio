@@ -26,6 +26,7 @@ export const dataFirst = [
           },
           {
             name: '1-passport',
+            type: 'number',
             placeholder: 'Passport number',
           },
         ],
@@ -62,6 +63,7 @@ export const dataFirst = [
         elements: [
           {
             name: '1-appID',
+            type: 'number',
             placeholder: 'Nomination application ID',
           },
         ],
@@ -77,10 +79,12 @@ export const dataFirst = [
           },
           {
             name: '1-visaId',
+            type: 'number',
             placeholder: 'Visa application ID',
           },
           {
             name: '1-grantNumber',
+            type: 'number',
             placeholder: 'Grant grant number',
           },
         ],
@@ -93,6 +97,7 @@ export const dataFirst = [
         elements: [
           {
             name: '2-people',
+            type: 'number',
             placeholder: 'How many people are included in this application?',
           },
         ],
@@ -297,6 +302,7 @@ export const dataSecond = [
         elements: [
           {
             name: '3-passportNumber',
+            type: 'number',
             placeholder: 'Passport number',
           },
           {
@@ -359,10 +365,12 @@ export const dataSecond = [
         elements: [
           {
             name: '3-card-identify-number',
+            type: 'number',
             placeholder: 'Identity number',
           },
           {
             name: '3-card-country-issue',
+            type: 'select',
             placeholder: 'Country of issue',
           },
         ],
@@ -374,6 +382,7 @@ export const dataSecond = [
         elements: [
           {
             name: '3-currently-located',
+            type: 'select',
             placeholder: 'Country this person is currently located in',
           },
         ],
@@ -499,6 +508,7 @@ export const dataSecond = [
           },
           {
             name: '3-location-of-application',
+            type: 'select',
             placeholder: 'Lodgement location of application',
           },
           {
@@ -572,6 +582,7 @@ export const dataSecond = [
           {
             name: '3-bridging-visa-place',
             placeholder: 'Place of issue',
+            type: 'select',
           },
           {
             name: '3-bridging-visa-issue',
@@ -1427,6 +1438,14 @@ export const dataFifth = [
         id: '16001',
         blockTitle: '16. Did you receive assistance in completing this form?',
         elementsType: 'checkbox',
+        render: [
+          '16-family-name',
+          '16-given-names',
+          '16-address',
+          '16-office-hours',
+          '16-mobile',
+          '16-assisted-person',
+        ],
         style: 'form__group--without-border',
         elements: [
           {
@@ -1447,6 +1466,7 @@ export const dataFifth = [
         id: '16002',
         blockTitle: 'Please give details of the person who assisted you',
         elementsType: 'checkbox',
+        renderFor: '16-assistance',
         elements: [
           {
             id: '16-mr',
@@ -1484,6 +1504,7 @@ export const dataFifth = [
         id: '16003',
         blockTitle: '',
         elementsType: 'input',
+        renderFor: '16-assistance',
         elements: [
           {
             name: '16-family-name',
@@ -1503,13 +1524,16 @@ export const dataFifth = [
         id: '16004',
         blockTitle: 'Telephone number or daytime contact',
         elementsType: 'input',
+        renderFor: '16-assistance',
         elements: [
           {
             name: '16-office-hours',
+            type: 'number',
             placeholder: 'Office hours',
           },
           {
             name: '16-mobile',
+            type: 'number',
             placeholder: 'Mobile',
           },
         ],

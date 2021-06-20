@@ -20,7 +20,6 @@ const Signature: React.FC<SignatureProps> = ({ element, label }) => {
         key={element.name}
         element={element}
         form={'sixthStep'}
-        //status={renderFor ? !!userData[renderFor] : true}
         status={''}
       />
     </div>

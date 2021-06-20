@@ -281,6 +281,7 @@
   color: red;
 }
 
-.step-wrapper .inputs__wrapper .inputs--date {
+.step-wrapper .inputs__wrapper .inputs--date,
+.step-wrapper .inputs__wrapper .inputs__item--select {
   border: 1px solid hsl(208deg 20% 87%);
 }

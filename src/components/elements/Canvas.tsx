@@ -20,7 +20,7 @@ type Coordinate = {
 };
 
 const Canvas = ({ width, height, label, element }: CanvasProps) => {
-  const { handleCanvas } = useContext(UserDataContext);
+  const { userData, handleCanvas } = useContext(UserDataContext);
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   const [isPainting, setIsPainting] = useState(false);
@@ -35,8 +35,8 @@ const Canvas = ({ width, height, label, element }: CanvasProps) => {
 
       const canvas: HTMLCanvasElement = canvasRef.current;
 
-      handleCanvas(element, event, canvas);
-      //console.log(...userData[element.name]);
+      handleCanvas(element, event, canvas, 'sixthStep');
+
       return {
         x: event.pageX - canvas.offsetLeft,
         y: event.pageY - canvas.offsetTop,
@@ -132,11 +132,14 @@ const Canvas = ({ width, height, label, element }: CanvasProps) => {
     }
   };
 
-  //console.log(canvasData);
-
   return (
     <div>
       <p className="signature__label">{label}</p>
+      {userData['sixthStep'][element.name].error && (
+        <p className="error-message">
+          {userData['sixthStep'][element.name].errorMessage}*
+        </p>
+      )}
       <canvas id="canvas" ref={canvasRef} height={height} width={width} />
     </div>
   );

@@ -264,8 +264,33 @@ const Survey = () => {
       '20-payment-details': { text: '', error: false, errorMessage: '' },
     },
     sixthStep: {
-      '21-primary-signature': { text: '', error: false, errorMessage: '' },
-      '21-secondary-signature-1': { text: '', error: false, errorMessage: '' },
+      '21-primary-signature': {
+        text: '',
+        signature: {
+          x: [],
+          y: [],
+        },
+        error: false,
+        errorMessage: '',
+      },
+      '21-secondary-signature-1': {
+        text: '',
+        signature: {
+          x: [],
+          y: [],
+        },
+        error: false,
+        errorMessage: '',
+      },
+      '21-signature-1': {
+        text: '',
+        signature: {
+          x: [],
+          y: [],
+        },
+        error: false,
+        errorMessage: '',
+      },
     },
   });
   const handleChange = (event: InputEvent, form: string) => {
@@ -307,27 +332,6 @@ const Survey = () => {
       [elementName]: val,
     });
   };
-
-  // const handleSelectRegion = (val: any, elementName: any) => {
-  //   setUserData({
-  //     ...userData,
-  //     [elementName]: {
-  //       region: val,
-  //     },
-  //   });
-  // };
-
-  // const getData = async () => {
-  //   await fetch(
-  //     'http://geohelper.info/api/v1/cities?apiKey=rTIXzrnUuzWrZFfC3RRRmsJGhI30hXg8&locale[lang]=en'
-  //   )
-  //     .then((response) => response.json())
-  //     .then((data) => console.log(data));
-  // };
-
-  // useEffect(() => {
-  //   getData();
-  // }, []);
 
   const handleClick = (event: InputEvent, form: string, render: string[]) => {
     if (userData[form][event.target.name].text === event.target.value) {
@@ -411,25 +415,33 @@ const Survey = () => {
     }
   };
 
-  const handleCanvas = (element: any, event: any, canvas: any) => {
-    // setUserData({
-    //   ...userData,
-    //   [element.name]: [
-    //     { x: 0, y: 0 },
-    //     ...userData[element.name],
-    //     {
-    //       x: event.pageX - canvas.offsetLeft,
-    //       y: event.pageY - canvas.offsetTop,
-    //     },
-    //   ],
-    // });
-  };
-
-  const handleNext = () => {
-    if (activeStep === steps.length) {
-      return;
-    }
-    setActiveStep(activeStep + 1);
+  const handleCanvas = (
+    element: any,
+    event: any,
+    canvas: any,
+    form: string
+  ) => {
+    setUserData({
+      ...userData,
+      [form]: {
+        ...userData[form],
+        [element.name]: {
+          ...userData[form][element.name],
+          text: '',
+          signature: {
+            x: [
+              ...userData[form][element.name].signature.x,
+              event.pageX - canvas.offsetLeft,
+            ],
+            y: [
+              ...userData[form][element.name].signature.y,
+              event.pageY - canvas.offsetTop,
+            ],
+          },
+          error: false,
+        },
+      },
+    });
   };
 
   const handleBack = () => {
@@ -437,10 +449,6 @@ const Survey = () => {
       return;
     }
     setActiveStep(activeStep - 1);
-  };
-
-  const handleSend = () => {
-    console.log('send');
   };
 
   const handleSubmit = (event: InputEvent) => {
@@ -457,6 +465,15 @@ const Survey = () => {
         newUserData[prop].errorMessage = 'cannot be empty';
         err = true;
       }
+
+      if (
+        userData[formId][prop].signature &&
+        userData[formId][prop].signature.x.length
+      ) {
+        newUserData[prop].error = true;
+        newUserData[prop].errorMessage = 'Signature cannot be empty';
+        err = true;
+      }
     }
 
     setUserData({
@@ -468,7 +485,7 @@ const Survey = () => {
       const newSteps = [...steps];
       newSteps[activeStep].complete = true;
       setSteps(newSteps);
-      if (activeStep === steps.length) {
+      if (activeStep === steps.length - 1) {
         return;
       }
       setActiveStep(activeStep + 1);
@@ -530,9 +547,7 @@ const Survey = () => {
           </div>
           <div className="container__right">
             <AdditionalInfo
-              handleNext={handleNext}
               handleBack={handleBack}
-              handleSend={handleSend}
               stepTitle={steps[activeStep].stepTitle}
               stepsNumber={steps.length}
               activeStep={activeStep}

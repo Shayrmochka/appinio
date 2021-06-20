@@ -2,9 +2,7 @@ import React from 'react';
 import './AdditionalInfo.css';
 
 interface AdditionalInfoProps {
-  handleNext: () => void;
   handleBack: () => void;
-  handleSend: () => void;
   stepTitle: string;
   stepsNumber: number;
   activeStep: number;
@@ -12,9 +10,7 @@ interface AdditionalInfoProps {
 }
 
 const AdditionalInfo: React.FC<AdditionalInfoProps> = ({
-  handleNext,
   handleBack,
-  handleSend,
   stepTitle,
   stepsNumber,
   activeStep,
@@ -34,20 +30,9 @@ const AdditionalInfo: React.FC<AdditionalInfoProps> = ({
           </button>
         )}
 
-        {activeStep !== stepsNumber - 1 ? (
-          <button
-            className="button__next"
-            form={formId}
-            type="submit"
-            //onClick={handleNext}
-          >
-            Next
-          </button>
-        ) : (
-          <button className="button__next" onClick={handleSend}>
-            Send
-          </button>
-        )}
+        <button className="button__next" form={formId} type="submit">
+          {activeStep !== stepsNumber - 1 ? 'Next' : 'Send'}
+        </button>
       </div>
     </div>
   );

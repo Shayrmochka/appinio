@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import { UserDataContext } from '../../context/UserDataContext';
 import { ButtonEvent } from '../../interfaces/interfaces';
 import ScrollToTopOnMount from '../../utilites/ScrollToTopOnMount';
 import Signature from '../elements/Signature';
@@ -9,13 +10,30 @@ interface SixthStepProps {
 }
 
 const SixthStep = ({ handleSubmit }: SixthStepProps) => {
+  const { userData, setUserData } = useContext(UserDataContext);
   const [signatyres, setSignatyres] = useState([1]);
 
   const addSignatyres = (event: ButtonEvent) => {
     event.preventDefault();
+    setUserData({
+      ...userData,
+      sixthStep: {
+        ...userData['sixthStep'],
+        [`21-signature-${signatyres.length + 1}`]: {
+          text: '',
+          signature: {
+            x: [],
+            y: [],
+          },
+          error: false,
+          errorMessage: '',
+        },
+      },
+    });
+
     setSignatyres([...signatyres, signatyres.length + 1]);
   };
-
+  // new Date().toISOString().substring(0, 10)
   const deleteSignatyres = (event: ButtonEvent) => {
     event.preventDefault();
     const deleted = signatyres.filter((e) => e !== signatyres.length);
@@ -108,14 +126,22 @@ const SixthStep = ({ handleSubmit }: SixthStepProps) => {
             </li>
           </ul>
           <Signature
-            element={{ name: '21-primary-signature', type: 'date' }}
+            element={{
+              name: '21-primary-signature',
+              type: 'date',
+              placeholder: 'Date',
+            }}
             label={'Signature of primary person'}
           />
 
           {signatyres.map((e) => (
             <Signature
               key={e}
-              element={{ name: `21-secondary-signature-${e}`, type: 'date' }}
+              element={{
+                name: [`21-signature-${signatyres.length}`],
+                type: 'date',
+                placeholder: 'Date',
+              }}
               label={'Signature'}
             />
           ))}

@@ -13,10 +13,10 @@ function Table() {
   const addRow = (event: ButtonEvent) => {
     event.preventDefault();
     setUserData({
+      ...userData,
       thirdStep: {
         ...userData['thirdStep'],
         [`${rows.length + 1}-country`]: {
-          // ...userData['thirdStep'][`${rows.length+1}-country`],
           text: '',
           error: false,
         },

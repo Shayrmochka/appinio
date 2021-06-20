@@ -1,6 +1,6 @@
 import { createContext } from 'react';
 
-function noop(element, event, canvas) {}
+function noop(element, event, canvas, form) {}
 
 export const UserDataContext = createContext({
   userData: [],

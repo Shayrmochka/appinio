@@ -45,7 +45,7 @@ const InputSelect: React.FC<InputSelectProps> = ({ element, status, form }) => {
     <div className="inputs__wrapper">
       <input
         key={element.name}
-        className="inputs__item"
+        className="inputs__item inputs__item--select"
         name={element.name}
         disabled={!status}
         value={userData[form][element.name].text}
